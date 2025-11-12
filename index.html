@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Rodel Jr. Ganancial</title>
+    <meta name="description" content="Resume-style portfolio generated from JSON data" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <aside class="sidebar" id="sidebar"></aside>
+        <main class="main" id="main"></main>
+    </div>
+
+    <script>
+        async function loadData() {
+            try {
+                const res = await fetch('data.json', { cache: 'no-store' });
+                if (!res.ok) throw new Error('no data.json');
+                const json = await res.json();
+                return json;
+            } catch (e) {
+                console.warn('Using fallback sample data. Add data.json to your repo to load real data.', e);
+            }
+        }
+
+        function el(tag, cls) { const n = document.createElement(tag); if (cls) n.className = cls; return n }
+
+        function renderSidebar(data) {
+            const container = document.getElementById('sidebar'); container.innerHTML = '';
+            const av = el('div', 'avatar'); av.textContent = data.name.split(' ').map(s => s[0]).slice(0, 2).join('').toUpperCase();
+            const name = el('h1'); name.textContent = data.name;
+            const role = el('div', 'role'); role.textContent = data.role;
+            const about = el('p', 'about'); about.textContent = data.about;
+            container.append(av, name, role, about);
+
+            const contactSec = el('div', 'section'); contactSec.innerHTML = '<h3>Contact</h3>';
+            const cl = el('div', 'contact-list');
+            const fields = [
+                { icon: '✉️', val: `<a class="link" href="mailto:${data.contact.email}">${data.contact.email}</a>` },
+                {
+                    icon: `<svg height="16" width="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:4px">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762
+                    0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11.75 19h-3.25v-10h3.25v10zm-1.625
+                    -11.267c-1.038 0-1.875-.847-1.875-1.875s.837-1.875 1.875-1.875
+                    1.875.847 1.875 1.875-.837 1.875-1.875 1.875zm13.375
+                    11.267h-3.25v-5.604c0-1.338-.026-3.063-1.868-3.063-1.869
+                    0-2.156 1.46-2.156 2.97v5.697h-3.25v-10h3.125v1.367h.044c.435-.823
+                    1.5-1.688 3.087-1.688 3.3 0 3.906 2.172 3.906 4.994v5.327z"/>
+                    </svg>`,
+                    val: `<a class="link" href="${data.contact.linkedin}" target="_blank">@rdlgnl</a>`
+                },
+                {
+                    icon: `<svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor" style="vertical-align:middle;margin-right:4px">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+                    0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+                    -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+                    -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.82
+                    .64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12
+                    .51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2
+                    0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>`,
+                    val: `<a class="link" href="https://github.com/${data.contact.github}" target="_blank">@${data.contact.github}</a>`
+                },
+                { icon: '📍', val: data.contact.location },
+            ];
+
+            fields.forEach(f => { const d = el('div', 'chip'); d.innerHTML = `${f.icon} ${f.val}`; cl.appendChild(d) });
+            contactSec.appendChild(cl);
+            container.appendChild(contactSec);
+
+            const tsec = el('div', 'section'); tsec.innerHTML = '<h3>Tech Stacks</h3>';
+            const skillsWrap = el('div', 'skills');
+            (data.techStacks || []).forEach(g => {
+                const groupTitle = el('div', 'chip'); groupTitle.textContent = g.group; groupTitle.style.fontWeight = '700'; groupTitle.style.width = '100%'; skillsWrap.appendChild(groupTitle);
+                g.items.forEach(it => { const s = el('div', 'skill'); s.textContent = it; skillsWrap.appendChild(s) });
+            });
+            tsec.appendChild(skillsWrap);
+            container.appendChild(tsec);
+            const footer = el('footer'); footer.textContent = 'Keep learning, keep coding, and let curiosity drive your progress.'; container.appendChild(footer);
+        }
+        function renderMain(data) {
+            const container = document.getElementById('main');
+            container.innerHTML = '';
+
+            const projectSec = el('section', 'section');
+            projectSec.innerHTML = '<h1>Projects</h1>';
+
+            const projectGrid = el('div', 'projects');
+
+            (data.projects || []).forEach(p => {
+                const card = el('div', 'project');
+
+                // ✅ Image preview (optional)
+                if (p.image) {
+                    const img = el('img');
+                    img.src = `assets/${p.image}`;
+                    img.alt = p.title;
+                    img.className = 'project-img';
+                    card.appendChild(img);
+                }
+
+                const h = el('h4');
+                h.textContent = p.title;
+
+                const d = el('div', 'desc');
+                d.textContent = p.desc;
+
+                const badges = el('div', 'badges');
+                (p.tech || []).forEach(t => {
+                    const b = el('div', 'badge');
+                    b.textContent = t;
+                    badges.appendChild(b);
+                });
+
+                const a = el('a', 'btn');
+                a.textContent = p.public ? '↪️' : '✖️';
+                a.href = p.link;
+                a.target = '_blank';
+
+                const actions = el('div', 'actions');
+                actions.appendChild(a);
+                card.append(h, d, badges, actions);
+                projectGrid.appendChild(card);
+            });
+
+            projectSec.appendChild(projectGrid);
+            container.appendChild(projectSec);
+        }
+
+
+        (async () => { const data = await loadData(); renderSidebar(data); renderMain(data) })();
+    </script>
+</body>
+
+</html>
