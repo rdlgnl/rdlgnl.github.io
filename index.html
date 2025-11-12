@@ -31,7 +31,7 @@
 
         function renderSidebar(data) {
             const container = document.getElementById('sidebar'); container.innerHTML = '';
-            const av = el('div', 'avatar'); av.textContent = data.name.split(' ').map(s => s[0]).slice(0, 2).join('').toUpperCase();
+            const av = el('div', 'avatar');
             const name = el('h1'); name.textContent = data.name;
             const role = el('div', 'role'); role.textContent = data.role;
             const about = el('p', 'about'); about.textContent = data.about;
@@ -51,7 +51,7 @@
                     0-2.156 1.46-2.156 2.97v5.697h-3.25v-10h3.125v1.367h.044c.435-.823
                     1.5-1.688 3.087-1.688 3.3 0 3.906 2.172 3.906 4.994v5.327z"/>
                     </svg>`,
-                    val: `<a class="link" href="${data.contact.linkedin}" target="_blank">@rdlgnl</a>`
+                    val: `<a class="link" href="${data.contact.linkedin}" target="_blank">linkedin</a>`
                 },
                 {
                     icon: `<svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor" style="vertical-align:middle;margin-right:4px">
@@ -63,7 +63,7 @@
                     .51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2
                     0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
                     </svg>`,
-                    val: `<a class="link" href="https://github.com/${data.contact.github}" target="_blank">@${data.contact.github}</a>`
+                    val: `<a class="link" href="https://github.com/${data.contact.github}" target="_blank">github</a>`
                 },
                 { icon: '📍', val: data.contact.location },
             ];

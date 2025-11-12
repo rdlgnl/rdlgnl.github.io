@@ -65,17 +65,20 @@ body {
 }
 
 .avatar {
-  width: 84px;
-  height: 84px;
+  width: 100%;
+  height: 230px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--accent), #2dd4bf);
-  font-weight: 700;
-  color: #001;
-  font-size: 22px;
-  margin-bottom: 12px;
+
+  /* Background image */
+  background-image: url('assets//profile.jpeg'); /* replace with your image */
+  background-size: cover;       /* cover the entire box */
+  background-position: center;  /* center the image */
+  background-repeat: no-repeat; /* don't repeat the image */
+
+  margin-bottom: 15px;
 }
 
 h1 {
