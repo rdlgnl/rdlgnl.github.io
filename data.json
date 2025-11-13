@@ -1,5 +1,5 @@
 {
-  "avatar":"profile.jpeg",
+  "avatar": "profile.jpeg",
   "name": "Rodel Jr. Ganancial",
   "role": "Senior Full-Stack PHP Developer – 7 Years of Experience",
   "tagline": "Building web apps with Laravel, React, and TypeScript.",
@@ -12,44 +12,46 @@
   },
   "techStacks": [
     {
-      "group": "Languages",
-      "items": ["PHP", "JavaScript", "TypeScript"]
-    },
-    {
-      "group": "Frameworks",
+      "group": "BACKEND",
       "items": [
+        "PHP",
         "Laravel",
         "CodeIgniter",
-        "Tailwind",
-        "Bootstrap",
-        "Laravel Inertia React"
+        "Express.js",
+        "Go lang",
+        "MeiliSearch"
       ]
     },
     {
-      "group": "libraries",
-      "items": ["React", "Jquery", "Knockout.js"]
+      "group": "FRONTEND",
+      "items": [
+        "React",
+        "Jquery",
+        "Knockout.js",
+        "Bootstrap",
+        "Tailwind",
+        "Vue.js",
+        "TypeScript",
+        "Next.js"
+      ]
     },
     {
-      "group": "Databases",
+      "group": "DATABASES",
       "items": ["MySQL", "PostgreSQL", "MongoDB", "MariaDB", "MSSQL"]
     },
     {
-      "group": "Caching",
+      "group": "CACHE",
       "items": ["Redis", "Memcached"]
     },
     {
-      "group": "Knowledgeable",
-      "items": ["Go Lang", "Express.js", "Vue.js", "MeiliSearch"]
-    },
-    {
-      "group": "Tools",
+      "group": "TOOLS",
       "items": ["VS Code", "Docker", "GitHub", "Jira", "ChatGPT"]
     }
   ],
   "projects": [
     {
       "title": "Snap Payroll",
-      "desc": "I contributed to the full development life cycle of the Snap Payroll and Daily Time Record (DTR) system, from initial planning and database design to implementation and deployment. The system streamlines employee management, improves payroll accuracy, and enhances reporting efficiency. My efforts ensured seamless integration of key functionalities and smooth coordination between teams, resulting in a reliable solution that supports client operations.",
+      "desc": "I contributed to the full development life cycle of the Snap Payroll and Daily Time Record (DTR) system, from careful planning and database design to complete implementation and deployment. The system streamlines employee management, improves payroll accuracy, and enhances reporting efficiency, ensuring smooth integration and reliable client operations.",
       "tech": ["PHP", "CodeIgniter", "Jquery", "MySQL", "NGINX"],
       "link": "https://www.snappayroll.net",
       "public": true,
@@ -57,15 +59,15 @@
     },
     {
       "title": "TG-BETS",
-      "desc": "This project is an online casino platform that integrates multiple game providers through a game microservice. The backend handles REST APIs and an admin panel for managing platform requirements, while collaborating with the front-end team. The system ensures smooth integration, scalability, and reliable management of gaming operations.",
-      "tech": ["PHP", "Laravel", "MySQL", "NGINX", "Microservice","Next.js"],
+      "desc": "This project is a comprehensive online casino platform that integrates multiple game providers through a dedicated game microservice. The backend handles REST APIs and provides an admin panel for managing all platform requirements, while collaborating closely with the front-end team. The system ensures smooth integration, high scalability, and reliable management of gaming operations.",
+      "tech": ["PHP", "Laravel", "MySQL", "NGINX", "Microservice", "Next.js"],
       "link": "https://tg-bet.com/",
       "public": true,
       "image": "tg-bet.png"
     },
     {
       "title": "Fiscal Incentives Registration Monitoring System",
-      "desc": "I enhanced the FIRMS system by implementing email notifications for evaluators and generating comparative reports for each update. Additionally, I developed functionality to issue certificates for registered clients. These improvements streamlined evaluation processes and ensured timely communication within the system.",
+      "desc": "I enhanced the FIRMS system by implementing email notifications for evaluators and generating detailed comparative reports for each update. I also developed functionality to issue official certificates for registered clients. These improvements streamlined evaluation processes, ensured timely communication, and significantly increased overall efficiency within the system.",
       "tech": ["PHP", "Laravel", "MySQL", "Jquery"],
       "link": "https://www.firms.firb.gov.ph",
       "public": true,
@@ -73,29 +75,23 @@
     },
     {
       "title": "PCB Tracker Online",
-      "desc": "I led the end-to-end enhancement of the PCB Tracker, reusing the existing database and delivering an upgraded solution deployed across all regions. The system transformed client management and improved operational consistency.",
-      "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "NGINX", "MySQL"],
+      "desc": "I led the full end-to-end enhancement of the PCB Tracker, carefully reusing the existing database and delivering a fully upgraded solution deployed across all regions. The system transformed client management, significantly improved operational consistency, and ensured highly reliable performance, streamlining workflows and supporting effective coordination across all teams.",
+      "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "Apache", "MySQL"],
       "link": "https://pcb.emb.gov.ph/pcb",
       "public": true,
       "image": "pcb-tracker.png"
     },
     {
       "title": "Automobile Wohlensee",
-      "desc": "I enhanced and developed new modules for the Automobile Wohlensee website, including car models and brands, customer quotations, a blog section, and a dashboard for managing quotations. I also improved mobile responsiveness, enhanced the admin panel, fixed bugs, and integrated a WhatsApp contact button. All enhancements were successfully implemented, resulting in a fully functional and user-friendly website.",
-      "tech": [
-        "PHP",
-        "CodeIgniter",
-        "MySQL",
-        "Bootstrap",
-        "Jquery"
-      ],
+      "desc": "I enhanced and developed new modules for the Automobile Wohlensee website, including car models, brands, customer quotations, a blog section, and a comprehensive dashboard for managing all quotations. I also improved mobile responsiveness, upgraded the admin panel, fixed various bugs, and integrated a WhatsApp contact button. All enhancements were successfully implemented, resulting in a fully functional, responsive, and user-friendly website.",
+      "tech": ["PHP", "CodeIgniter", "MySQL", "Bootstrap", "Jquery"],
       "link": "https://www.automobile-wohlensee.ch/",
       "public": true,
       "image": "automobile-wohlensee.png"
     },
     {
       "title": "Physical Target Accomplishment System",
-      "desc": "As the sole developer, I managed the end-to-end development of the Physical Target and Accomplishment System at EMB, handling everything from data gathering and system design to implementation and deployment. The system streamlines tracking of targets and accomplishments, improving reporting and operational efficiency. I ensured all functionalities were seamlessly integrated, delivering a reliable solution for the organization.",
+      "desc": "I managed the full end-to-end development of the Physical Target and Accomplishment System at EMB, overseeing everything from data gathering and comprehensive system design to implementation and final deployment. The system streamlines tracking of targets and accomplishments, enhances reporting and operational efficiency, and ensures all functionalities are seamlessly integrated, delivering a reliable, robust solution for the organization.",
       "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "NGINX", "MySQL"],
       "link": "#",
       "public": false,
@@ -103,7 +99,7 @@
     },
     {
       "title": "Solid Waste Management System",
-      "desc": "I initiated the Solid Waste Management System, laying the foundation and core structure before handing it over to another developer. The system manages a 10-year garbage collection plan for local government units (LGUs), including submission and evaluation features, serving as a centralized record management tool to streamline oversight and planning.",
+      "desc": "I initiated the Solid Waste Management System, establishing the foundation and core structure before handing it over to another developer. The system manages a comprehensive 10-year garbage collection plan for local government units (LGUs), including submission and evaluation features, serving as a centralized record management tool to streamline oversight, planning, and operational efficiency.",
       "tech": ["PHP", "CodeIgniter", "Vue.js", "Bootstrap", "NGINX", "MariaDB"],
       "link": "#",
       "public": false,
@@ -111,7 +107,7 @@
     },
     {
       "title": "Fleet & Motorpool Management System",
-      "desc": "The Fleet & Motorpool Management System manages vehicle inventory, procurement requests, and maintenance schedules. The system streamlines replacement, repair, and maintenance processes, improving operational efficiency. It has been successfully implemented and is actively used by Presidential Management Staff employees, with access restricted via VPN.",
+      "desc": "The Fleet & Motorpool Management System efficiently manages vehicle inventory, procurement requests, and maintenance schedules. The system streamlines replacement, repair, and routine maintenance processes, significantly improving operational efficiency. It has been successfully implemented and is actively used by Presidential Management Staff employees, with access securely restricted via VPN.",
       "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "MSSQL", "Azure"],
       "link": "#",
       "public": false,
@@ -119,7 +115,7 @@
     },
     {
       "title": "Financial Budget and Planning System",
-      "desc": "I solely developed the Financial Budget and Planning System, integrating it with the EMB Integrated Information System. The system streamlines budget planning and allocation for each division and section for the upcoming fiscal year. It was successfully deployed and evaluated for the central office, with plans for expansion to other locations.",
+      "desc": "I developed the Financial Budget and Planning System, fully integrating it with the EMB Integrated Information System. The system effectively streamlines budget planning and allocation for every division and section for the upcoming fiscal year. It was successfully deployed and evaluated at the central office, with future expansion planned for other locations.",
       "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "NGINX", "MariaDB"],
       "link": "#",
       "public": false,
@@ -127,7 +123,7 @@
     },
     {
       "title": "Butterfly REST APIS",
-      "desc": "I developed numerous APIs and handled the most challenging task of creating the video streaming microservice for a platform inspired by TikTok. To enhance the user experience, I implemented chunked video uploads and processed videos into streaming-ready formats, ensuring smooth playback. My work was critical in delivering a scalable and high-performance video platform.",
+      "desc": "I developed numerous APIs and handled the most challenging task of creating the video streaming microservice for a platform inspired by TikTok. To improve the user experience, I implemented chunked video uploads and processed videos into streaming-ready formats, ensuring smooth playback. My work was critical in delivering a scalable, high-performance video platform.",
       "tech": [
         "PHP",
         "Laravel",

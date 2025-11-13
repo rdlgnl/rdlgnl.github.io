@@ -198,6 +198,34 @@ p.about {
   border: 1px solid rgba(255,255,255,0.05);
 }
 
+.project-img-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer; /* indicates click */
+}
+
+.project-img-container .tooltip {
+    visibility: hidden;
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    text-align: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 100%; /* shows above the image */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 12px;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.project-img-container:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
 
 .badges {
   display: flex;

@@ -19,7 +19,7 @@
     <script>
         async function loadData() {
             try {
-                const res = await fetch('data.json', { cache: 'no-store' });
+                const res = await fetch('data.json');
                 if (!res.ok) throw new Error('no data.json');
                 const json = await res.json();
                 return json;
@@ -94,15 +94,27 @@
 
             (data.projects || []).forEach(p => {
                 const card = el('div', 'project');
+                const container = el('div', 'project-img-container');
 
-                // ✅ Image preview (optional)
-                if (p.image) {
-                    const img = el('img');
-                    img.src = `assets/${p.image}`;
-                    img.alt = p.title;
-                    img.className = 'project-img';
-                    card.appendChild(img);
-                }
+                // Wrap image inside link
+                const link = el('a');
+                link.href = p.link;
+                link.target = '_blank';
+
+                const img = el('img');
+                img.src = `assets/${p.image}`;
+                img.alt = p.title;
+                img.className = 'project-img';
+
+                link.appendChild(img);
+                container.appendChild(link);
+
+                // Add tooltip inside same container
+                const tooltip = el('div', 'tooltip');
+                tooltip.textContent = p.public ? 'Click to view' : 'Link not available.';
+                container.appendChild(tooltip);
+
+                card.appendChild(container);
 
                 const h = el('h4');
                 h.textContent = p.title;
@@ -117,14 +129,7 @@
                     badges.appendChild(b);
                 });
 
-                const a = el('a', 'btn');
-                a.textContent = p.public ? '↪️' : '✖️';
-                a.href = p.link;
-                a.target = '_blank';
-
-                const actions = el('div', 'actions');
-                actions.appendChild(a);
-                card.append(h, d, badges, actions);
+                card.append(h, d, badges);
                 projectGrid.appendChild(card);
             });
 
