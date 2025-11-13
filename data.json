@@ -13,7 +13,7 @@
   "techStacks": [
     {
       "group": "BACKEND",
-      "items": ["PHP", "Laravel", "CodeIgniter", "Express.js", "Go lang"]
+      "items": ["PHP", "Laravel", "CodeIgniter"]
     },
     {
       "group": "FRONTEND",
