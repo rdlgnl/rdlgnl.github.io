@@ -73,7 +73,7 @@ body {
   justify-content: center;
 
   /* Background image */
-  background-image: url('assets//profile.jpeg'); /* replace with your image */
+  background-image: url('assets//profile.jpg'); /* replace with your image */
   background-size: cover;       /* cover the entire box */
   background-position: center;  /* center the image */
   background-repeat: no-repeat; /* don't repeat the image */
