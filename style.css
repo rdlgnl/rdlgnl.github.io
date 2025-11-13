@@ -4,7 +4,7 @@
   --muted: #94a3b8;
   --accent: #7c3aed;
   --radius: 14px;
-  --max-width: auto-fit;
+  --max-width: 800px;
   --fg: #e6eef8;
   --gap: 18px;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
@@ -33,7 +33,7 @@ body {
   width: 100%;
   max-width: var(--max-width);
   display: grid;
-  grid-template-columns: 320px 1fr;
+  /* grid-template-columns: 320px 1fr; */
   gap: 28px;
   align-items: start;
 }
@@ -110,7 +110,7 @@ p.about {
 
 .contact-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 8px;
 }
 
