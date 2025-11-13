@@ -99,8 +99,10 @@
                 // Wrap image inside link
                 const link = el('a');
                 link.href = p.link;
-                link.target = '_blank';
-
+                if(p.public){
+                    link.target = '_blank';
+                }
+              
                 const img = el('img');
                 img.src = `assets/${p.image}`;
                 img.alt = p.title;
