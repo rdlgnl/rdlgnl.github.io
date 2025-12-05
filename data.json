@@ -106,7 +106,7 @@
       "title": "PCB Tracker Online",
       "desc": "I led the full end-to-end enhancement of the PCB Tracker, carefully reusing the existing database and delivering a fully upgraded solution deployed across all regions. The system transformed client management, significantly improved operational consistency, and ensured highly reliable performance, streamlining workflows and supporting effective coordination across all teams.",
       "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "Apache", "MySQL"],
-      "link": "https://pcb.emb.gov.ph/pcb",
+      "link": "https://pcb.emb.gov.ph/",
       "public": true,
       "image": "pcb-tracker.png"
     },
