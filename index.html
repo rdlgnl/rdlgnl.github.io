@@ -16,8 +16,9 @@
 
 <body>
     <div class="wrap">
-        <aside class="sidebar" id="sidebar"></aside>
-        <main class="main" id="main"></main>
+        <div class="about-section" id="about-section"></div>
+        <div class="work-experience-section" id="work-experience-section"></div>
+        <div class="project-section" id="project-section"></div>
     </div>
 
     <script>
@@ -34,8 +35,8 @@
 
         function el(tag, cls) { const n = document.createElement(tag); if (cls) n.className = cls; return n }
 
-        function renderSidebar(data) {
-            const container = document.getElementById('sidebar'); container.innerHTML = '';
+        function renderAboutSection(data) {
+            const container = document.getElementById('about-section'); container.innerHTML = '';
             const av = el('div', 'avatar');
             const name = el('h1'); name.textContent = data.name;
             const role = el('div', 'role'); role.textContent = data.role;
@@ -87,10 +88,59 @@
             container.appendChild(tsec);
             const footer = el('footer'); footer.textContent = 'Keep learning, keep coding, and let curiosity drive your progress.'; container.appendChild(footer);
         }
-        function renderMain(data) {
-            const container = document.getElementById('main');
+
+        function renderWorkExperienceSection(data) {
+            const container = document.getElementById('work-experience-section');
             container.innerHTML = '';
 
+            // --- 1. Work Experience Section ---
+            if (data.workExperience && data.workExperience.length > 0) {
+                const expSec = el('section', 'section');
+
+                const expList = el('div', 'experience-list');
+                expList.innerHTML = '<h1>Work Experience</h1>';
+                data.workExperience.forEach(job => {
+                    const card = el('div', 'job-card');
+
+                    // Header Group
+                    const header = el('div', 'job-header');
+
+                    const titleRow = el('div', 'job-title-row');
+                    const title = el('h3', 'job-title');
+                    title.textContent = job.title;
+                    const date = el('span', 'job-date');
+                    date.textContent = job.employmentDate;
+
+                    titleRow.append(title, date);
+
+                    const company = el('div', 'job-company');
+                    // Add icon or just text
+                    company.innerHTML = `<span class="job-type">${job.isFullTime ? 'Full-Time' : 'Consultant/Freelance'}</span> @ ${job.company}`;
+
+                    header.append(titleRow, company);
+
+                    // List of descriptions
+                    const ul = el('ul', 'job-desc');
+                    (job.descriptions || []).forEach(d => {
+                        const li = el('li');
+                        li.textContent = d.item;
+                        ul.appendChild(li);
+                    });
+
+                    card.append(header, ul);
+                    expList.appendChild(card);
+                });
+
+                expSec.appendChild(expList);
+                container.appendChild(expSec);
+            }
+        }
+
+        function renderProjectSection(data) {
+            const container = document.getElementById('project-section');
+            container.innerHTML = '';
+
+            // --- 2. Projects Section (Existing Code) ---
             const projectSec = el('section', 'section');
             projectSec.innerHTML = '<h1>Projects</h1>';
 
@@ -100,13 +150,12 @@
                 const card = el('div', 'project');
                 const container = el('div', 'project-img-container');
 
-                // Wrap image inside link
                 const link = el('a');
                 link.href = p.link;
-                if(p.public){
+                if (p.public) {
                     link.target = '_blank';
                 }
-              
+
                 const img = el('img');
                 img.src = `assets/${p.image}`;
                 img.alt = p.title;
@@ -115,7 +164,6 @@
                 link.appendChild(img);
                 container.appendChild(link);
 
-                // Add tooltip inside same container
                 const tooltip = el('div', 'tooltip');
                 tooltip.textContent = p.public ? 'Click to view' : 'Link not available.';
                 container.appendChild(tooltip);
@@ -144,7 +192,7 @@
         }
 
 
-        (async () => { const data = await loadData(); renderSidebar(data); renderMain(data) })();
+        (async () => { const data = await loadData(); renderAboutSection(data); renderWorkExperienceSection(data); renderProjectSection(data) })();
     </script>
 </body>
 

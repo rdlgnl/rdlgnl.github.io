@@ -3,7 +3,7 @@
   "name": "Rodel Jr. Ganancial",
   "role": "Senior Full-Stack PHP Developer – 7 Years of Experience",
   "tagline": "Building web apps with Laravel, React, and TypeScript.",
-  "about": "I collaborate with businesses to deliver high-quality web solutions, specializing in customization, troubleshooting, and API development. I thrive on challenging projects that foster learning and growth, and I am a dedicated, approachable team player committed to continuous learning and adapting to new technologies.",
+  "about": "I worked with businesses to deliver high-quality web solutions, specializing in customization, troubleshooting, and API development. I thrive on challenging projects that foster learning and growth, and I am a dedicated, approachable team player committed to continuous learning and adapting to new technologies.",
   "contact": {
     "email": "rodel.ganancial.job@gmail.com",
     "location": "North Caloocan City Philippines",
@@ -52,6 +52,114 @@
       ]
     }
   ],
+  "workExperience": [
+    {
+      "company": "FLEXISOURCE IT",
+      "title": "SENIOR FULL-STACK PHP DEVELOPER",
+      "isFullTime": true,
+      "employmentDate": "February 2025 - present",
+      "descriptions": [
+        { "item": "Maintain and develop features for the CRM platform" },
+        {
+          "item": "Implement third-party integrations to enhance system functionality"
+        }
+      ]
+    },
+    {
+      "company": "NTT LIMITED PHILIPPINES",
+      "title": "SENIOR BACKEND DEVELOPER",
+      "isFullTime": true,
+      "employmentDate": "May 2024 - February 2025",
+      "descriptions": [
+        {
+          "item": "Contributed to recreating the white-label casino platform for FBM Emotion"
+        },
+        { "item": "Integrated third-party games with FBM Gaming" }
+      ]
+    },
+    {
+      "company": "1BIT SOFTWARE DEVELOPMENT CORP",
+      "title": "PHP LARAVEL BACKEND DEVELOPER",
+      "isFullTime": true,
+      "employmentDate": "January 2023 - April 2024",
+      "descriptions": [
+        { "item": "Developed the Butterfly streaming platform" },
+        { "item": "Developed microservice for Butterfly streaming" },
+        { "item": "Integrated third-party Cloudflare Streaming services" },
+        { "item": "Developed the TG BETS admin panel" },
+        { "item": "Developed microservice for mini-games" },
+        {
+          "item": "Developed a game microservice for third-party integration with game providers"
+        }
+      ]
+    },
+    {
+      "company": "CHEMONICS INTERNATIONAL INC",
+      "title": "SOFTWARE DEVELOPER (CONSULTANT)",
+      "isFullTime": false,
+      "employmentDate": "May 2023 - June 2023",
+      "descriptions": [
+        {
+          "item": "Designed and implemented online reporting tools."
+        },
+        {
+          "item": "Created and maintained dynamic online reports for data analysis."
+        }
+      ]
+    },
+    {
+      "company": "EMB CENTRAL OFFICE",
+      "title": "WEB APPLICATION DEVELOPER",
+      "isFullTime": true,
+      "employmentDate": "August 2020 - January 2023",
+      "descriptions": [
+        { "item": "Developed PCB Tracker Online system" },
+        {
+          "item": "Contributed to the development of the Solid Waste Management System"
+        },
+        { "item": "Developed Financial Information System" },
+        { "item": "Client support and technical assistance" }
+      ]
+    },
+    {
+      "company": "AUTOMOBILE WOHLENSEE AG",
+      "title": "PHP CODEIGNITER DEVELOPER (FREELANCE)",
+      "isFullTime": false,
+      "employmentDate": "June 2022 - October 2022",
+      "descriptions": [
+        { "item": "Developed additional features for the admin panel" },
+        { "item": "Built customer car quotation lead functionality" },
+        {
+          "item": "Handled bug fixes and on-call feature enhancements for ads module"
+        }
+      ]
+    },
+    {
+      "company": "PRESIDENTIAL MANAGEMENT STAFF",
+      "title": "SOFTWARE DEVELOPER (CONSULTANT)",
+      "isFullTime": false,
+      "employmentDate": "October 2021 - December 2021",
+      "descriptions": [
+        { "item": "Developed Fleet Motor Pool Management System" },
+        {
+          "item": "Integrated vehicle parts request workflow with the Procurement Management System (PMS)"
+        }
+      ]
+    },
+    {
+      "company": "HILSOFT INC",
+      "title": "SOFTWARE ENGINEER",
+      "isFullTime": true,
+      "employmentDate": "May 2018 - June 2020",
+      "descriptions": [
+        { "item": "Developed Snap Payroll system" },
+        {
+          "item": "Maintained HRIS, Daily Time Record (DTR), and Payroll systems"
+        },
+        { "item": "Handled client onboarding and system deployment" }
+      ]
+    }
+  ],
   "projects": [
     {
       "title": "TG-BETS",
@@ -87,8 +195,8 @@
       "image": "firms.png"
     },
     {
-      "title": "Financial Budget and Planning System",
-      "desc": "I developed the Financial Budget and Planning System, fully integrating it with the EMB Integrated Information System. The system effectively streamlines budget planning and allocation for every division and section for the upcoming fiscal year. It was successfully deployed and evaluated at the central office, with future expansion planned for other locations.",
+      "title": "Financial Information System",
+      "desc": "I developed the Financial Information System, fully integrating it with the EMB Integrated Information System. The system effectively streamlines budget planning and allocation for every division and section for the upcoming fiscal year. It was successfully deployed and evaluated at the central office, with future expansion planned for other locations.",
       "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "NGINX", "MariaDB"],
       "link": "#",
       "public": false,
