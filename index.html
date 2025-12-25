@@ -43,7 +43,7 @@
             const about = el('p', 'about'); about.textContent = data.about;
             container.append(av, name, role, about);
 
-            const contactSec = el('div', 'section'); contactSec.innerHTML = '<h3>Contact</h3>';
+            const contactSec = el('div', 'section'); contactSec.innerHTML = '<h3>Contacts</h3>';
             const cl = el('div', 'contact-list');
             const fields = [
                 { icon: '✉️', val: `<a class="link" href="mailto:${data.contact.email}">${data.contact.email}</a>` },
