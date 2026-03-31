@@ -264,9 +264,9 @@
       "public": true,
       "images": [
         "automobile-wohlensee/automobile-wohlensee.png",
-        "automobile-wohlensee/automobile-wohlensee1.png",
-        "automobile-wohlensee/automobile-wohlensee2.png",
-        "automobile-wohlensee/automobile-wohlensee3.png"
+        "automobile-wohlensee/automobile-wohlensee1.PNG",
+        "automobile-wohlensee/automobile-wohlensee2.PNG",
+        "automobile-wohlensee/automobile-wohlensee3.PNG"
       ]
     },
     {
@@ -277,10 +277,10 @@
       "public": false,
       "images": [
         "presidential-management-staff/fmms.png",
-        "presidential-management-staff/fmms1.png",
-        "presidential-management-staff/fmms2.png",
-        "presidential-management-staff/fmms3.png",
-        "presidential-management-staff/fmms4.png"
+        "presidential-management-staff/fmms1.PNG",
+        "presidential-management-staff/fmms2.PNG",
+        "presidential-management-staff/fmms3.PNG",
+        "presidential-management-staff/fmms4.PNG"
       ]
     },
     {
