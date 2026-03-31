@@ -238,7 +238,7 @@
       "tech": ["PHP", "CodeIgniter", "Vue.js", "Bootstrap", "NGINX", "MariaDB"],
       "link": "#",
       "public": false,
-      "images": ["emb/sws1.png", "emb/sws2.png", "emb/sws3.PNG", "emb/sws4.png"]
+      "images": ["emb/sws1.png", "emb/sws2.png", "emb/sws3.PNG", "emb/sws4.PNG"]
     },
     {
       "title": "PCB Tracker Online",
