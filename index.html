@@ -18,7 +18,6 @@
     <div class="wrap">
         <div class="about-section" id="about-section"></div>
         <div class="work-experience-section" id="work-experience-section"></div>
-        <div class="project-section" id="project-section"></div>
     </div>
 
     <script>
@@ -89,37 +88,71 @@
             const footer = el('footer'); footer.textContent = 'Keep learning, keep coding, and let curiosity drive your progress.'; container.appendChild(footer);
         }
 
+        function buildProjectCard(p) {
+            const card = el('div', 'project');
+            const imgContainer = el('div', 'project-img-container');
+
+            const link = el('a');
+            link.href = p.link;
+            if (p.public) link.target = '_blank';
+
+            const img = el('img');
+            img.src = `assets/${p.image}`;
+            img.alt = p.title;
+            img.className = 'project-img';
+
+            imgContainer.style.setProperty('--img-bg', `url(assets/${p.image})`);
+
+            link.appendChild(img);
+            imgContainer.appendChild(link);
+
+            const tooltip = el('div', 'tooltip');
+            tooltip.textContent = p.public ? 'Click to view' : 'Link not available.';
+            imgContainer.appendChild(tooltip);
+
+            card.appendChild(imgContainer);
+
+            const h = el('h4');
+            h.textContent = p.title;
+
+            const d = el('div', 'desc');
+            d.textContent = p.desc;
+
+            const badges = el('div', 'badges');
+            (p.tech || []).forEach(t => {
+                const b = el('div', 'badge');
+                b.textContent = t;
+                badges.appendChild(b);
+            });
+
+            card.append(h, d, badges);
+            return card;
+        }
+
         function renderWorkExperienceSection(data) {
             const container = document.getElementById('work-experience-section');
             container.innerHTML = '';
 
-            // --- 1. Work Experience Section ---
             if (data.workExperience && data.workExperience.length > 0) {
                 const expSec = el('section', 'section');
-
                 const expList = el('div', 'experience-list');
                 expList.innerHTML = '<h1>Work Experience</h1>';
+
                 data.workExperience.forEach(job => {
                     const card = el('div', 'job-card');
 
-                    // Header Group
                     const header = el('div', 'job-header');
-
                     const titleRow = el('div', 'job-title-row');
                     const title = el('h3', 'job-title');
                     title.textContent = job.title;
                     const date = el('span', 'job-date');
                     date.textContent = job.employmentDate;
-
                     titleRow.append(title, date);
 
                     const company = el('div', 'job-company');
-                    // Add icon or just text
                     company.innerHTML = `<span class="job-type">${job.isFullTime ? 'Full-Time' : 'Part-Time'}</span> @ ${job.company}`;
-
                     header.append(titleRow, company);
 
-                    // List of descriptions
                     const ul = el('ul', 'job-desc');
                     (job.descriptions || []).forEach(d => {
                         const li = el('li');
@@ -128,6 +161,35 @@
                     });
 
                     card.append(header, ul);
+
+                    // Projects accordion
+                    const relatedProjects = (data.projects || []).filter(p =>
+                        (job.projectRefs || []).includes(p.title)
+                    );
+
+                    if (relatedProjects.length > 0) {
+                        const toggleBtn = el('button', 'projects-toggle');
+                        toggleBtn.innerHTML = `
+                            <span class="projects-toggle-label">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                                ${relatedProjects.length === 1 ? 'Project' : 'Projects'}
+                                <span class="projects-count">${relatedProjects.length}</span>
+                            </span>
+                            <svg class="toggle-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        `;
+
+                        const panel = el('div', 'projects-panel');
+                        relatedProjects.forEach(p => panel.appendChild(buildProjectCard(p)));
+
+                        toggleBtn.addEventListener('click', () => {
+                            const isOpen = toggleBtn.classList.contains('open');
+                            toggleBtn.classList.toggle('open', !isOpen);
+                            panel.classList.toggle('open', !isOpen);
+                        });
+
+                        card.append(toggleBtn, panel);
+                    }
+
                     expList.appendChild(card);
                 });
 
@@ -136,63 +198,7 @@
             }
         }
 
-        function renderProjectSection(data) {
-            const container = document.getElementById('project-section');
-            container.innerHTML = '';
-
-            // --- 2. Projects Section (Existing Code) ---
-            const projectSec = el('section', 'section');
-            projectSec.innerHTML = '<h1>Projects</h1>';
-
-            const projectGrid = el('div', 'projects');
-
-            (data.projects || []).forEach(p => {
-                const card = el('div', 'project');
-                const container = el('div', 'project-img-container');
-
-                const link = el('a');
-                link.href = p.link;
-                if (p.public) {
-                    link.target = '_blank';
-                }
-
-                const img = el('img');
-                img.src = `assets/${p.image}`;
-                img.alt = p.title;
-                img.className = 'project-img';
-
-                link.appendChild(img);
-                container.appendChild(link);
-
-                const tooltip = el('div', 'tooltip');
-                tooltip.textContent = p.public ? 'Click to view' : 'Link not available.';
-                container.appendChild(tooltip);
-
-                card.appendChild(container);
-
-                const h = el('h4');
-                h.textContent = p.title;
-
-                const d = el('div', 'desc');
-                d.textContent = p.desc;
-
-                const badges = el('div', 'badges');
-                (p.tech || []).forEach(t => {
-                    const b = el('div', 'badge');
-                    b.textContent = t;
-                    badges.appendChild(b);
-                });
-
-                card.append(h, d, badges);
-                projectGrid.appendChild(card);
-            });
-
-            projectSec.appendChild(projectGrid);
-            container.appendChild(projectSec);
-        }
-
-
-        (async () => { const data = await loadData(); renderAboutSection(data); renderWorkExperienceSection(data); renderProjectSection(data) })();
+        (async () => { const data = await loadData(); renderAboutSection(data); renderWorkExperienceSection(data); })();
     </script>
 </body>
 
