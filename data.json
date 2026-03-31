@@ -60,7 +60,9 @@
       "employmentDate": "February 2025 - present",
       "projectRefs": ["REX CRM"],
       "descriptions": [
-        { "item": "Maintain and develop features for the client’s REX CRM platform" },
+        {
+          "item": "Maintain and develop features for the client’s REX CRM platform"
+        },
         {
           "item": "Implement third-party integrations to enhance system functionality"
         }
@@ -116,7 +118,12 @@
       "title": "WEB APPLICATION DEVELOPER",
       "isFullTime": true,
       "employmentDate": "August 2020 - January 2023",
-      "projectRefs": ["PCB Tracker Online", "Solid Waste Management System", "Financial Information System", "Physical Target Accomplishment System"],
+      "projectRefs": [
+        "PCB Tracker Online",
+        "Solid Waste Management System",
+        "Financial Information System",
+        "Physical Target Accomplishment System"
+      ],
       "descriptions": [
         { "item": "Developed PCB Tracker Online system" },
         {
@@ -169,13 +176,20 @@
     }
   ],
   "projects": [
-     {
+    {
       "title": "REX CRM",
       "desc": "Easy-to-use cloud and mobile real estate CRM software for agencies of all sizes and join thousands of agents increasing productivity with Rex Sales and Rentals CRM",
-      "tech": ["PHP", "Laravel", "MySQL", "PostreSQL", "Microservice", "React.js"],
+      "tech": [
+        "PHP",
+        "Laravel",
+        "MySQL",
+        "PostreSQL",
+        "Microservice",
+        "React.js"
+      ],
       "link": "https://www.rexsoftware.com/products/real-estate-crm",
       "public": true,
-      "image": "rex/crm.png"
+      "images": ["rex/crm.png"]
     },
     {
       "title": "TG-BETS",
@@ -183,7 +197,7 @@
       "tech": ["PHP", "Laravel", "MySQL", "NGINX", "Microservice", "Next.js"],
       "link": "https://tg-bet.com/",
       "public": true,
-      "image": "1bit/tg-bet.png"
+      "images": ["1bit/tg-bet.png"]
     },
     {
       "title": "Butterfly REST APIS",
@@ -200,7 +214,7 @@
       ],
       "link": "#",
       "public": false,
-      "image": "1bit/butterfly-rest.png"
+      "images": ["1bit/butterfly-rest.png"]
     },
     {
       "title": "Fiscal Incentives Registration Monitoring System",
@@ -208,7 +222,7 @@
       "tech": ["PHP", "Laravel", "MySQL", "Jquery"],
       "link": "https://www.firms.firb.gov.ph",
       "public": true,
-      "image": "chemonics/firms.png"
+      "images": ["chemonics/firms.png"]
     },
     {
       "title": "Financial Information System",
@@ -216,7 +230,7 @@
       "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "NGINX", "MariaDB"],
       "link": "#",
       "public": false,
-      "image": "emb/fis.png"
+      "images": ["emb/fis.png"]
     },
     {
       "title": "Solid Waste Management System",
@@ -224,7 +238,7 @@
       "tech": ["PHP", "CodeIgniter", "Vue.js", "Bootstrap", "NGINX", "MariaDB"],
       "link": "#",
       "public": false,
-      "image": "emb/sws.png"
+      "images": ["emb/sws1.png", "emb/sws2.png", "emb/sws3.png", "emb/sws4.png"]
     },
     {
       "title": "PCB Tracker Online",
@@ -232,7 +246,7 @@
       "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "Apache", "MySQL"],
       "link": "https://pcb.emb.gov.ph/",
       "public": true,
-      "image": "emb/pcb-tracker.png"
+      "images": ["emb/pcb-tracker.png"]
     },
     {
       "title": "Physical Target Accomplishment System",
@@ -240,15 +254,20 @@
       "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "NGINX", "MySQL"],
       "link": "#",
       "public": false,
-      "image": "emb/physical-target-acc-system.png"
+      "images": ["emb/physical-target-acc-system.png"]
     },
     {
       "title": "Automobile Wohlensee",
       "desc": "Added modules for car models, brands, customer quotations, and a blog, alongside an upgraded admin dashboard, bug fixes, and WhatsApp integration.",
-      "tech": ["PHP", "CodeIgniter", "MySQL", "Bootstrap", "Jquery","NGINX"],
+      "tech": ["PHP", "CodeIgniter", "MySQL", "Bootstrap", "Jquery", "NGINX"],
       "link": "https://www.automobile-wohlensee.ch/",
       "public": true,
-      "image": "automobile-wohlensee/automobile-wohlensee.png"
+      "images": [
+        "automobile-wohlensee/automobile-wohlensee.png",
+        "automobile-wohlensee/automobile-wohlensee1.png",
+        "automobile-wohlensee/automobile-wohlensee2.png",
+        "automobile-wohlensee/automobile-wohlensee3.png"
+      ]
     },
     {
       "title": "Fleet & Motorpool Management System",
@@ -256,7 +275,13 @@
       "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "MSSQL", "Azure"],
       "link": "#",
       "public": false,
-      "image": "presidential-management-staff/fmms.png"
+      "images": [
+        "presidential-management-staff/fmms.png",
+        "presidential-management-staff/fmms1.png",
+        "presidential-management-staff/fmms2.png",
+        "presidential-management-staff/fmms3.png",
+        "presidential-management-staff/fmms4.png"
+      ]
     },
     {
       "title": "Snap Payroll",
@@ -264,7 +289,12 @@
       "tech": ["PHP", "CodeIgniter", "Jquery", "MySQL", "NGINX"],
       "link": "https://www.snappayroll.net",
       "public": true,
-      "image": "hilsoft/snap-payroll.png"
+      "images": [
+        "hilsoft/snap-payroll1.PNG",
+        "hilsoft/snap-payroll2.png",
+        "hilsoft/snap-payroll3.PNG",
+        "hilsoft/snap-payroll4.PNG"
+      ]
     }
   ]
 }

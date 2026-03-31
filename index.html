@@ -88,26 +88,117 @@
             const footer = el('footer'); footer.textContent = 'Keep learning, keep coding, and let curiosity drive your progress.'; container.appendChild(footer);
         }
 
+        function setupModal() {
+            const overlay = el('div', 'modal-overlay');
+            overlay.innerHTML = `
+                <div class="modal-box">
+                    <div class="modal-img-area">
+                        <div class="modal-img-wrap">
+                            <img class="modal-img" src="" alt="" />
+                        </div>
+                        <button class="modal-close" aria-label="Close">&#x2715;</button>
+                        <button class="modal-nav modal-prev" aria-label="Previous">&#8249;</button>
+                        <button class="modal-nav modal-next" aria-label="Next">&#8250;</button>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="modal-dots"></div>
+                        <span class="modal-counter"></span>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+
+            let images = [], current = 0;
+            const img = overlay.querySelector('.modal-img');
+            const imgWrap = overlay.querySelector('.modal-img-wrap');
+            const counter = overlay.querySelector('.modal-counter');
+            const dotsWrap = overlay.querySelector('.modal-dots');
+            const prevBtn = overlay.querySelector('.modal-prev');
+            const nextBtn = overlay.querySelector('.modal-next');
+
+            function goTo(i) {
+                current = (i + images.length) % images.length;
+                img.style.opacity = '0';
+                setTimeout(() => {
+                    const src = `assets/${images[current]}`;
+                    img.src = src;
+                    imgWrap.style.setProperty('--modal-bg', `url(${src})`);
+                    img.style.opacity = '1';
+                }, 130);
+                counter.textContent = images.length > 1 ? `${current + 1} / ${images.length}` : '';
+                dotsWrap.querySelectorAll('.modal-dot').forEach((d, idx) => d.classList.toggle('active', idx === current));
+            }
+
+            function close() { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+
+            prevBtn.addEventListener('click', () => goTo(current - 1));
+            nextBtn.addEventListener('click', () => goTo(current + 1));
+            overlay.querySelector('.modal-close').addEventListener('click', close);
+            overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+            document.addEventListener('keydown', e => {
+                if (!overlay.classList.contains('open')) return;
+                if (e.key === 'Escape') close();
+                if (e.key === 'ArrowLeft') goTo(current - 1);
+                if (e.key === 'ArrowRight') goTo(current + 1);
+            });
+
+            window.openImgModal = function(imgs, startIndex) {
+                images = imgs;
+                current = startIndex;
+                dotsWrap.innerHTML = '';
+                if (images.length > 1) {
+                    images.forEach((_, i) => {
+                        const dot = el('span', i === startIndex ? 'modal-dot active' : 'modal-dot');
+                        dot.addEventListener('click', () => goTo(i));
+                        dotsWrap.appendChild(dot);
+                    });
+                }
+                prevBtn.style.display = images.length > 1 ? '' : 'none';
+                nextBtn.style.display = images.length > 1 ? '' : 'none';
+                img.style.opacity = '1';
+                const initialSrc = `assets/${images[current]}`;
+                img.src = initialSrc;
+                imgWrap.style.setProperty('--modal-bg', `url(${initialSrc})`);
+                counter.textContent = images.length > 1 ? `${current + 1} / ${images.length}` : '';
+                overlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            };
+        }
+
         function buildProjectCard(p) {
+            const images = p.images || (p.image ? [p.image] : []);
             const card = el('div', 'project');
             const imgContainer = el('div', 'project-img-container');
 
-            const link = el('a');
-            link.href = p.link;
-            if (p.public) link.target = '_blank';
+            imgContainer.style.setProperty('--img-bg', `url(assets/${images[0]})`);
 
-            const img = el('img');
-            img.src = `assets/${p.image}`;
-            img.alt = p.title;
-            img.className = 'project-img';
+            const visible = images.slice(0, 3);
+            const extra = images.length - 3;
+            const collage = el('div', `project-collage count-${visible.length}`);
 
-            imgContainer.style.setProperty('--img-bg', `url(assets/${p.image})`);
+            visible.forEach((imgSrc, i) => {
+                const item = el('div', 'collage-item');
+                item.setAttribute('role', 'button');
+                item.setAttribute('tabindex', '0');
+                item.addEventListener('click', () => window.openImgModal(images, i));
+                item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') window.openImgModal(images, i); });
+                const img = el('img');
+                img.src = `assets/${imgSrc}`;
+                img.alt = `${p.title} screenshot ${i + 1}`;
+                img.className = 'project-img';
+                item.appendChild(img);
+                if (i === 2 && extra > 0) {
+                    const more = el('div', 'collage-more');
+                    more.textContent = `+${extra}`;
+                    item.appendChild(more);
+                }
+                collage.appendChild(item);
+            });
 
-            link.appendChild(img);
-            imgContainer.appendChild(link);
+            imgContainer.appendChild(collage);
 
             const tooltip = el('div', 'tooltip');
-            tooltip.textContent = p.public ? 'Click to view' : 'Link not available.';
+            tooltip.textContent = `View image${images.length > 1 ? 's' : ''}`;
             imgContainer.appendChild(tooltip);
 
             card.appendChild(imgContainer);
@@ -126,6 +217,16 @@
             });
 
             card.append(h, d, badges);
+
+            if (p.public && p.link && p.link !== '#') {
+                const linkBtn = el('a', 'project-link-btn');
+                linkBtn.href = p.link;
+                linkBtn.target = '_blank';
+                linkBtn.rel = 'noopener noreferrer';
+                linkBtn.innerHTML = `Visit Site <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+                card.appendChild(linkBtn);
+            }
+
             return card;
         }
 
@@ -198,7 +299,7 @@
             }
         }
 
-        (async () => { const data = await loadData(); renderAboutSection(data); renderWorkExperienceSection(data); })();
+        (async () => { setupModal(); const data = await loadData(); renderAboutSection(data); renderWorkExperienceSection(data); })();
     </script>
 </body>
 

@@ -333,22 +333,18 @@ footer {
 
 .project-img {
   width: 100%;
-  height: 180px;
-  object-fit: contain;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  height: 100%;
+  object-fit: cover;
   display: block;
-  position: relative;
-  z-index: 1;
+  transition: transform 0.35s ease, opacity 0.2s;
 }
 
 .project-img-container {
   position: relative;
-  display: block;
-  cursor: pointer;
+  border-radius: 10px;
   overflow: hidden;
-  border-radius: 8px;
   margin-bottom: 14px;
+  cursor: pointer;
 }
 
 .project-img-container::before {
@@ -358,14 +354,82 @@ footer {
   background-image: var(--img-bg);
   background-size: cover;
   background-position: center;
-  filter: blur(16px) saturate(1.4);
-  opacity: 0.5;
+  filter: blur(18px) saturate(1.5);
+  opacity: 0.45;
   z-index: 0;
 }
 
-.project-img-container a {
+/* --- Collage --- */
+.project-collage {
+  display: grid;
+  gap: 3px;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 180px;
   position: relative;
   z-index: 1;
+}
+
+/* 1 image — full width */
+.project-collage.count-1 {
+  grid-template-columns: 1fr;
+}
+
+/* 2 images — large left, single right */
+.project-collage.count-2 {
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 1fr;
+}
+
+/* 3 images — large left, two stacked right */
+.project-collage.count-3 {
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.project-collage.count-2 .collage-item:first-child,
+.project-collage.count-3 .collage-item:first-child {
+  grid-row: span 2;
+}
+
+.collage-item {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.collage-item:hover .project-img {
+  transform: scale(1.07);
+}
+
+/* Dark overlay on hover for tooltip legibility */
+.project-collage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  transition: background 0.2s;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 8px;
+}
+
+.project-img-container:hover .project-collage::after {
+  background: rgba(0, 0, 0, 0.38);
+}
+
+/* "+N more" badge on last slot */
+.collage-more {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.52);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  pointer-events: none;
 }
 
 .project-img-container .tooltip {
@@ -393,10 +457,6 @@ footer {
   opacity: 1;
 }
 
-.project-img-container:hover .project-img {
-  opacity: 0.4;
-}
-
 .badges {
   display: flex;
   flex-wrap: wrap;
@@ -411,6 +471,196 @@ footer {
   background: rgba(124, 58, 237, 0.1); /* Slight purple tint */
   color: #c4b5fd;
   border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+/* --- Visit Site button --- */
+.project-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 12px;
+  padding: 6px 13px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #c4b5fd;
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.22);
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  align-self: flex-start;
+}
+
+.project-link-btn:hover {
+  background: rgba(124, 58, 237, 0.22);
+  border-color: rgba(124, 58, 237, 0.5);
+  color: #ddd6fe;
+}
+
+/* --- Image Modal --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.modal-img-area {
+  position: relative;
+  width: min(80vw, 900px);
+  height: 72vh;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.modal-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-img-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background-image: var(--modal-bg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px) saturate(1.4);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.modal-img {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7);
+  transition: opacity 0.13s ease;
+  display: block;
+}
+
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 28px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+  padding: 0;
+  line-height: 1;
+}
+
+.modal-prev {
+  left: 10px;
+}
+
+.modal-next {
+  right: 10px;
+}
+
+.modal-nav:hover {
+  background: rgba(124, 58, 237, 0.55);
+  border-color: rgba(124, 58, 237, 0.4);
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 20px;
+}
+
+.modal-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.modal-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.modal-dot.active {
+  background: #fff;
+  transform: scale(1.4);
+}
+
+.modal-counter {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  min-width: 36px;
+  text-align: center;
 }
 
 /* =========================================
@@ -470,13 +720,24 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .project-img {
-    height: auto; /* Allow auto height or fixed small height */
-    max-height: 200px;
+  .project-collage {
+    height: 150px;
   }
-  
+
   /* 5. Headlines */
   h1 {
     font-size: 20px;
+  }
+
+  /* 6. Modal: compact fixed size on mobile */
+  .modal-img-area {
+    width: 92vw;
+    height: 52vh;
+  }
+
+  .modal-nav {
+    width: 34px;
+    height: 34px;
+    font-size: 22px;
   }
 }
