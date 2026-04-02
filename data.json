@@ -3,7 +3,7 @@
   "name": "Rodel Jr. Ganancial",
   "role": "Senior Full-Stack PHP Developer – 7 Years of Experience",
   "tagline": "Building web apps with Laravel, React, and TypeScript.",
-  "about": "I worked with businesses to deliver high-quality web solutions, specializing in customization, troubleshooting, and API development. I thrive on challenging projects that foster learning and growth, and I am a dedicated, approachable team player committed to continuous learning and adapting to new technologies.",
+  "about": "I build reliable web applications that solve real business problems. With 7 years of experience across startups, government, and enterprise clients, I specialize in backend architecture, API development, and full-stack delivery. I care about clean, maintainable code and shipping things that actually work.",
   "contact": {
     "email": "rodel.ganancial.job@gmail.com",
     "location": "North Caloocan City Philippines",
@@ -61,10 +61,10 @@
       "projectRefs": ["REX CRM"],
       "descriptions": [
         {
-          "item": "Maintain and develop features for the client’s REX CRM platform"
+          "item": "Maintained and delivered new features for REX CRM, improving platform reliability for thousands of real estate agents"
         },
         {
-          "item": "Implement third-party integrations to enhance system functionality"
+          "item": "Integrated third-party services into the platform, extending its capabilities and reducing manual workflows for users"
         }
       ]
     },
@@ -76,9 +76,11 @@
       "projectRefs": [],
       "descriptions": [
         {
-          "item": "Contributed to recreating the white-label casino platform for FBM Emotion"
+          "item": "Helped rebuild the white-label casino platform for FBM Emotion, enabling the client to launch a fully branded gaming experience"
         },
-        { "item": "Integrated third-party games with FBM Gaming" }
+        {
+          "item": "Integrated third-party game providers into FBM Gaming, expanding the game catalog available to end users"
+        }
       ]
     },
     {
@@ -88,13 +90,17 @@
       "employmentDate": "January 2023 - April 2024",
       "projectRefs": ["TG-BETS", "Butterfly REST APIS"],
       "descriptions": [
-        { "item": "Developed the Butterfly streaming platform" },
-        { "item": "Developed microservice for Butterfly streaming" },
-        { "item": "Integrated third-party Cloudflare Streaming services" },
-        { "item": "Developed the TG BETS admin panel" },
-        { "item": "Developed microservice for mini-games" },
         {
-          "item": "Developed a game microservice for third-party integration with game providers"
+          "item": "Built the Butterfly streaming platform and its video microservice, enabling scalable short-form video delivery similar to TikTok"
+        },
+        {
+          "item": "Integrated Cloudflare Streaming for chunked uploads and FFMPEG processing, improving video playback performance and reliability"
+        },
+        {
+          "item": "Developed the TG BETS admin panel and mini-game microservice, giving operators full control over casino platform operations"
+        },
+        {
+          "item": "Built a game microservice for third-party game provider integrations, allowing the platform to onboard multiple providers efficiently"
         }
       ]
     },
@@ -106,10 +112,10 @@
       "projectRefs": ["Fiscal Incentives Registration Monitoring System"],
       "descriptions": [
         {
-          "item": "Designed and implemented online reporting tools."
+          "item": "Designed and implemented online reporting tools for the FIRMS system, enabling evaluators to track and process fiscal incentive registrations more efficiently"
         },
         {
-          "item": "Created and maintained dynamic online reports for data analysis."
+          "item": "Built dynamic comparative reports that gave stakeholders clear, data-driven insights into registration updates and client status"
         }
       ]
     },
@@ -125,12 +131,18 @@
         "Physical Target Accomplishment System"
       ],
       "descriptions": [
-        { "item": "Developed PCB Tracker Online system" },
         {
-          "item": "Contributed to the development of the Solid Waste Management System"
+          "item": "Developed and enhanced PCB Tracker Online, deployed across all EMB regions to standardize client management and improve operational consistency"
         },
-        { "item": "Developed Financial Information System" },
-        { "item": "Client support and technical assistance" }
+        {
+          "item": "Contributed to building the Solid Waste Management System, digitizing 10-year garbage collection plans for LGUs nationwide"
+        },
+        {
+          "item": "Developed the Financial Information System, streamlining budget planning and allocation across all EMB divisions"
+        },
+        {
+          "item": "Provided client support and technical assistance, reducing system downtime and improving user adoption across government offices"
+        }
       ]
     },
     {
@@ -140,10 +152,14 @@
       "employmentDate": "June 2022 - October 2022",
       "projectRefs": ["Automobile Wohlensee"],
       "descriptions": [
-        { "item": "Developed additional features for the admin panel" },
-        { "item": "Built customer car quotation lead functionality" },
         {
-          "item": "Handled bug fixes and on-call feature enhancements for ads module"
+          "item": "Added new modules to the admin panel including car models, brands, and a blog section, expanding the platform's content management capabilities"
+        },
+        {
+          "item": "Built a customer car quotation feature that improved lead capture and helped the dealership convert more inquiries into sales"
+        },
+        {
+          "item": "Resolved bugs and delivered on-call enhancements for the ads module, keeping the platform stable and up-to-date"
         }
       ]
     },
@@ -154,9 +170,11 @@
       "employmentDate": "October 2021 - December 2021",
       "projectRefs": ["Fleet & Motorpool Management System"],
       "descriptions": [
-        { "item": "Developed Fleet Motor Pool Management System" },
         {
-          "item": "Integrated vehicle parts request workflow with the Procurement Management System (PMS)"
+          "item": "Built the Fleet & Motorpool Management System for the Presidential Management Staff, centralizing vehicle inventory and maintenance tracking"
+        },
+        {
+          "item": "Integrated the vehicle parts request workflow with the Procurement Management System, eliminating manual hand-offs and speeding up approvals"
         }
       ]
     },
@@ -167,18 +185,22 @@
       "employmentDate": "May 2018 - June 2020",
       "projectRefs": ["Snap Payroll"],
       "descriptions": [
-        { "item": "Developed Snap Payroll system" },
         {
-          "item": "Maintained HRIS, Daily Time Record (DTR), and Payroll systems"
+          "item": "Built Snap Payroll from the ground up — from database design to deployment — delivering an accurate and reliable payroll solution for multiple clients"
         },
-        { "item": "Handled client onboarding and system deployment" }
+        {
+          "item": "Maintained HRIS, DTR, and Payroll systems, ensuring consistent uptime and data accuracy for day-to-day HR operations"
+        },
+        {
+          "item": "Led client onboarding and system deployments, enabling smooth go-lives and reducing setup time for new customers"
+        }
       ]
     }
   ],
   "projects": [
     {
       "title": "REX CRM",
-      "desc": "Easy-to-use cloud and mobile real estate CRM software for agencies of all sizes and join thousands of agents increasing productivity with Rex Sales and Rentals CRM",
+      "desc": "Cloud-based real estate CRM platform helping agencies and agents manage sales, rentals, and client relationships at scale.",
       "tech": [
         "PHP",
         "Laravel",
@@ -193,7 +215,7 @@
     },
     {
       "title": "TG-BETS",
-      "desc": "Online casino platform integrating multiple game providers via a dedicated game microservice, with REST APIs and an admin panel for managing platform operations.",
+      "desc": "Online casino platform with multi-provider game integration and an admin panel for managing platform operations.",
       "tech": ["PHP", "Laravel", "MySQL", "NGINX", "Microservice", "Next.js"],
       "link": "https://tg-bet.com/",
       "public": true,
@@ -201,7 +223,7 @@
     },
     {
       "title": "Butterfly REST APIS",
-      "desc": "REST APIs and video streaming microservice for a TikTok-inspired platform. Implemented chunked uploads and FFMPEG processing for smooth, scalable video playback.",
+      "desc": "REST APIs and video streaming microservice for a TikTok-inspired short-form video platform.",
       "tech": [
         "PHP",
         "Laravel",
@@ -218,7 +240,7 @@
     },
     {
       "title": "Fiscal Incentives Registration Monitoring System",
-      "desc": "Enhanced the FIRMS system with email notifications for evaluators, comparative reports per update, and certificate issuance for registered clients.",
+      "desc": "Government system for registering and monitoring fiscal incentive applications from businesses.",
       "tech": ["PHP", "Laravel", "MySQL", "Jquery"],
       "link": "https://www.firms.firb.gov.ph",
       "public": true,
@@ -226,7 +248,7 @@
     },
     {
       "title": "Financial Information System",
-      "desc": "Budget planning and allocation system integrated with the EMB Integrated Information System, covering all divisions and sections for the upcoming fiscal year.",
+      "desc": "Internal budget planning and allocation system for EMB covering all divisions and sections.",
       "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "NGINX", "MariaDB"],
       "link": "#",
       "public": false,
@@ -234,7 +256,7 @@
     },
     {
       "title": "Solid Waste Management System",
-      "desc": "Initiated the foundation of a system managing 10-year garbage collection plans for LGUs, with submission and evaluation features for centralized record keeping.",
+      "desc": "Government platform for managing and evaluating 10-year solid waste collection plans submitted by LGUs.",
       "tech": ["PHP", "CodeIgniter", "Vue.js", "Bootstrap", "NGINX", "MariaDB"],
       "link": "#",
       "public": false,
@@ -242,7 +264,7 @@
     },
     {
       "title": "PCB Tracker Online",
-      "desc": "Full end-to-end enhancement of the PCB Tracker reusing the existing database, deployed across all regions for improved client management and operational consistency.",
+      "desc": "Online tracking system for monitoring PCB-containing equipment and compliance records across all EMB regions.",
       "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "Apache", "MySQL"],
       "link": "https://pcb.emb.gov.ph/",
       "public": true,
@@ -250,7 +272,7 @@
     },
     {
       "title": "Physical Target Accomplishment System",
-      "desc": "End-to-end development of a system for tracking physical targets and accomplishments at EMB, from system design to deployment.",
+      "desc": "Internal system for tracking and reporting physical targets and accomplishments across EMB units.",
       "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "NGINX", "MySQL"],
       "link": "#",
       "public": false,
@@ -258,7 +280,7 @@
     },
     {
       "title": "Automobile Wohlensee",
-      "desc": "Added modules for car models, brands, customer quotations, and a blog, alongside an upgraded admin dashboard, bug fixes, and WhatsApp integration.",
+      "desc": "Car dealership website with inventory management, customer quotations, and a blog for a Swiss automotive company.",
       "tech": ["PHP", "CodeIgniter", "MySQL", "Bootstrap", "Jquery", "NGINX"],
       "link": "https://www.automobile-wohlensee.ch/",
       "public": true,
@@ -271,7 +293,7 @@
     },
     {
       "title": "Fleet & Motorpool Management System",
-      "desc": "Manages vehicle inventory, procurement requests, and maintenance schedules for Presidential Management Staff, with VPN-restricted access.",
+      "desc": "Internal system for managing government vehicle inventory, maintenance schedules, and procurement requests.",
       "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "MSSQL", "Azure"],
       "link": "#",
       "public": false,
@@ -285,7 +307,7 @@
     },
     {
       "title": "Snap Payroll",
-      "desc": "Full development lifecycle of a Payroll and DTR system — from database design to deployment — covering employee management, payroll accuracy, and reporting.",
+      "desc": "Payroll and HR system covering employee management, daily time records, and payroll processing for multiple clients.",
       "tech": ["PHP", "CodeIgniter", "Jquery", "MySQL", "NGINX"],
       "link": "https://www.snappayroll.net",
       "public": true,
