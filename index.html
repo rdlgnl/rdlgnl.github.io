@@ -79,7 +79,7 @@
                     0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
                     </svg>`,
                     printLabel: 'GitHub:',
-                    val: `<a class="link" href="https://github.com/${data.contact.github}" target="_blank">github.com/${data.contact.github}</a>`
+                    val: `<a class="link" href="https://github.com/${data.contact.github}" target="_blank">${data.contact.github}</a>`
                 },
                 ...(data.contact.phone ? [{ cls: 'chip chip-phone', screenIcon: '📞', printLabel: 'Phone:', val: data.contact.phone }] : []),
             ];
