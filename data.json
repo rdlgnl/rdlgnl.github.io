@@ -74,7 +74,7 @@
       "title": "SENIOR BACKEND DEVELOPER",
       "isFullTime": true,
       "employmentDate": "May 2024 - February 2025",
-      "projectRefs": ["FBM EMOTION ADMIN","FBM EMOTION PLAYER"],
+      "projectRefs": ["FBM Emotion Admin","FBM Emotion Player"],
       "descriptions": [
         {
           "item": "Rebuild the white-label casino platform for FBM Emotion."
@@ -215,7 +215,7 @@
       "images": ["rex/crm.png"]
     },
     {
-      "title": "FBM EMOTION ADMIN",
+      "title": "FBM Emotion Admin",
       "desc": "Casino admin platform for FBM Emotion, supporting multi-provider game integrations and full operator control over the gaming experience.",
       "tech": [
         "PHP",
@@ -229,7 +229,7 @@
       "images": ["fbm/admin.jpeg"]
     },
     {
-      "title": "FBM EMOTION PLAYER",
+      "title": "FBM Emotion Player",
       "desc": "Player-facing casino platform for FBM Emotion, delivering a fully branded gaming experience with seamless third-party game provider integrations.",
       "tech": [
         "PHP",
@@ -250,7 +250,7 @@
       "images": ["1bit/tg-bet.png"]
     },
     {
-      "title": "Butterfly REST APIS",
+      "title": "Butterfly",
       "desc": "REST APIs and video streaming microservice for a TikTok-inspired short-form video platform.",
       "tech": [
         "PHP",
