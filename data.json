@@ -74,10 +74,10 @@
       "title": "SENIOR BACKEND DEVELOPER",
       "isFullTime": true,
       "employmentDate": "May 2024 - February 2025",
-      "projectRefs": [],
+      "projectRefs": ["FBM EMOTION ADMIN","FBM EMOTION PLAYER"],
       "descriptions": [
         {
-          "item": "Helped rebuild the white-label casino platform for FBM Emotion, enabling the client to launch a fully branded gaming experience"
+          "item": "Rebuild the white-label casino platform for FBM Emotion."
         },
         {
           "item": "Integrated third-party game providers into FBM Gaming, expanding the game catalog available to end users"
@@ -213,6 +213,33 @@
       "link": "https://www.rexsoftware.com/products/real-estate-crm",
       "public": true,
       "images": ["rex/crm.png"]
+    },
+    {
+      "title": "FBM EMOTION ADMIN",
+      "desc": "Casino admin platform for FBM Emotion, supporting multi-provider game integrations and full operator control over the gaming experience.",
+      "tech": [
+        "PHP",
+        "Laravel",
+        "MySQL",
+        "Go lang",
+        "React.js"
+      ],
+      "link": "#",
+      "public": true,
+      "images": ["fbm/admin.jpeg"]
+    },
+    {
+      "title": "FBM EMOTION PLAYER",
+      "desc": "Player-facing casino platform for FBM Emotion, delivering a fully branded gaming experience with seamless third-party game provider integrations.",
+      "tech": [
+        "PHP",
+        "Laravel",
+        "MySQL",
+        "React.js"
+      ],
+      "link": "#",
+      "public": true,
+      "images": ["fbm/player.png"]
     },
     {
       "title": "TG-BETS",
