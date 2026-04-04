@@ -280,9 +280,7 @@
                     card.append(header, ul);
 
                     // Projects accordion
-                    const relatedProjects = (data.projects || []).filter(p =>
-                        (job.projectRefs || []).includes(p.title)
-                    );
+                    const relatedProjects = job.projects || [];
 
                     if (relatedProjects.length > 0) {
                         const toggleBtn = el('button', 'projects-toggle');
