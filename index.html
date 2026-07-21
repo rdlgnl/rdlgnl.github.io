@@ -34,13 +34,66 @@
 
         function el(tag, cls) { const n = document.createElement(tag); if (cls) n.className = cls; return n }
 
+        // Total months of experience, computed from work history.
+        // Overlapping jobs (e.g. freelance/consulting alongside a full-time role) are
+        // merged so shared months are only counted once, then all periods are summed.
+        function computeMonthsOfExperience(jobs) {
+            const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+            const toMonthIndex = str => {
+                str = (str || '').trim();
+                if (/present|current|now|ongoing/i.test(str)) {
+                    const now = new Date();
+                    return now.getFullYear() * 12 + now.getMonth();
+                }
+                const m = str.match(/([a-zA-Z]+)\s+(\d{4})/);
+                if (!m) return null;
+                const mi = MONTHS.indexOf(m[1].toLowerCase());
+                if (mi < 0) return null;
+                return parseInt(m[2], 10) * 12 + mi;
+            };
+
+            const intervals = [];
+            (jobs || []).forEach(job => {
+                const parts = (job.employmentDate || '').split(/\s*[-–—]\s*/);
+                if (parts.length < 2) return;
+                const start = toMonthIndex(parts[0]);
+                const end = toMonthIndex(parts[1]);
+                if (start == null || end == null || end < start) return;
+                intervals.push([start, end]);
+            });
+            if (!intervals.length) return 0;
+
+            intervals.sort((a, b) => a[0] - b[0]);
+            const merged = [intervals[0].slice()];
+            for (let i = 1; i < intervals.length; i++) {
+                const last = merged[merged.length - 1];
+                const [s, e] = intervals[i];
+                if (s <= last[1] + 1) last[1] = Math.max(last[1], e); // overlapping or contiguous
+                else merged.push([s, e]);
+            }
+
+            return merged.reduce((sum, [s, e]) => sum + (e - s), 0);
+        }
+
+        // "8 years", "7 years and 6 months", "6 months", "1 year and 1 month"
+        function formatExperience(totalMonths) {
+            const years = Math.floor(totalMonths / 12);
+            const months = totalMonths % 12;
+            const parts = [];
+            if (years > 0) parts.push(`${years} year${years === 1 ? '' : 's'}`);
+            if (months > 0) parts.push(`${months} month${months === 1 ? '' : 's'}`);
+            return parts.length ? parts.join(' and ') : '0 months';
+        }
+
         function renderAboutSection(data) {
             const container = document.getElementById('about-section'); container.innerHTML = '';
+            const experience = formatExperience(computeMonthsOfExperience(data.workExperience));
+            const fillYears = str => (str || '').replace(/\{\{\s*experience\s*\}\}/g, experience);
             const av = el('div', 'avatar');
             const name = el('h1'); name.textContent = data.name;
-            const role = el('div', 'role'); role.textContent = data.role;
+            const role = el('div', 'role'); role.textContent = fillYears(data.role);
             const location = el('div', 'location'); location.innerHTML = `<span class="screen-only">📍 </span><span class="print-only">Location: </span>${data.contact.location}`;
-            const about = el('p', 'about'); about.textContent = data.about;
+            const about = el('p', 'about'); about.textContent = fillYears(data.about);
             container.append(av, name, role, location, about);
 
             const resumeBtn = el('button', 'resume-download-btn');

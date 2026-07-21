@@ -1,9 +1,9 @@
 {
   "avatar": "profile.png",
   "name": "Rodel Jr. Ganancial",
-  "role": "Senior Full-Stack PHP Developer – 7 Years of Experience",
+  "role": "Senior Full-Stack PHP Developer – {{experience}} of Experience",
   "tagline": "Building web apps with Laravel, React, and TypeScript.",
-  "about": "I build reliable web applications that solve real business problems. With 7 years of experience across startups, government, and enterprise clients, I specialize in backend architecture, API development, and full-stack delivery. I care about clean, maintainable code and shipping things that actually work.",
+  "about": "I build reliable web applications that solve real business problems. With {{experience}} of experience across startups, government, and enterprise clients, I specialize in backend architecture, API development, and full-stack delivery. I care about clean, maintainable code and shipping things that actually work.",
   "contact": {
     "email": "rodel.ganancial.job@gmail.com",
     "phone": "09261566259",
