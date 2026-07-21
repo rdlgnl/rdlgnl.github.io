@@ -48,9 +48,9 @@
         "Docker Desktop",
         "GitHub",
         "Jira",
-        "ChatGPT AI",
+        "ChatGPT",
         "Table plus",
-        "Claude AI"
+        "Claude"
       ]
     }
   ],
@@ -153,7 +153,7 @@
           "title": "TG-BETS",
           "desc": "Online casino platform with multi-provider game integration and an admin panel for managing platform operations.",
           "tech": ["PHP", "Laravel", "MySQL", "NGINX", "Microservice", "Next.js"],
-          "link": "https://tg-bet.com/",
+          "link": "#",
           "public": true,
           "images": ["1bit/tg-bet.png"]
         },
@@ -337,7 +337,7 @@
           "title": "Snap Payroll",
           "desc": "Payroll and HR system covering employee management, daily time records, and payroll processing for multiple clients.",
           "tech": ["PHP", "CodeIgniter", "Jquery", "MySQL", "NGINX"],
-          "link": "https://www.snappayroll.net",
+          "link": "https://www.hilsoftinc.com/hrpayroll/",
           "public": true,
           "images": [
             "hilsoft/snap-payroll1.PNG",
