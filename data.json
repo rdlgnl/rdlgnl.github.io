@@ -14,7 +14,11 @@
   "techStacks": [
     {
       "group": "BACKEND",
-      "items": ["PHP", "Laravel", "CodeIgniter"]
+      "items": [
+        "PHP",
+        "Laravel",
+        "CodeIgniter"
+      ]
     },
     {
       "group": "FRONTEND",
@@ -35,11 +39,20 @@
     },
     {
       "group": "DATABASES",
-      "items": ["MySQL", "PostgreSQL", "MongoDB", "MariaDB", "MSSQL"]
+      "items": [
+        "MySQL",
+        "PostgreSQL",
+        "MongoDB",
+        "MariaDB",
+        "MSSQL"
+      ]
     },
     {
       "group": "CACHE",
-      "items": ["Redis", "Memcached"]
+      "items": [
+        "Redis",
+        "Memcached"
+      ]
     },
     {
       "group": "TOOLS",
@@ -82,7 +95,9 @@
           ],
           "link": "https://www.rexsoftware.com/products/real-estate-crm",
           "public": true,
-          "images": ["rex/crm.png"]
+          "images": [
+            "rex/crm.webp"
+          ]
         }
       ]
     },
@@ -112,7 +127,9 @@
           ],
           "link": "#",
           "public": true,
-          "images": ["fbm/admin.jpeg"]
+          "images": [
+            "fbm/admin.webp"
+          ]
         },
         {
           "title": "FBM Emotion Player",
@@ -125,7 +142,9 @@
           ],
           "link": "#",
           "public": true,
-          "images": ["fbm/player.png"]
+          "images": [
+            "fbm/player.webp"
+          ]
         }
       ]
     },
@@ -152,10 +171,19 @@
         {
           "title": "TG-BETS",
           "desc": "Online casino platform with multi-provider game integration and an admin panel for managing platform operations.",
-          "tech": ["PHP", "Laravel", "MySQL", "NGINX", "Microservice", "Next.js"],
+          "tech": [
+            "PHP",
+            "Laravel",
+            "MySQL",
+            "NGINX",
+            "Microservice",
+            "Next.js"
+          ],
           "link": "#",
           "public": true,
-          "images": ["1bit/tg-bet.png"]
+          "images": [
+            "1bit/tg-bet.webp"
+          ]
         },
         {
           "title": "Butterfly",
@@ -172,7 +200,9 @@
           ],
           "link": "#",
           "public": false,
-          "images": ["1bit/butterfly-rest.png"]
+          "images": [
+            "1bit/butterfly-rest.webp"
+          ]
         }
       ]
     },
@@ -193,10 +223,17 @@
         {
           "title": "Fiscal Incentives Registration Monitoring System",
           "desc": "Government system for registering and monitoring fiscal incentive applications from businesses.",
-          "tech": ["PHP", "Laravel", "MySQL", "Jquery"],
+          "tech": [
+            "PHP",
+            "Laravel",
+            "MySQL",
+            "Jquery"
+          ],
           "link": "https://www.firms.firb.gov.ph",
           "public": true,
-          "images": ["chemonics/firms.png"]
+          "images": [
+            "chemonics/firms.webp"
+          ]
         }
       ]
     },
@@ -223,34 +260,73 @@
         {
           "title": "PCB Tracker Online",
           "desc": "Online tracking system for monitoring PCB-containing equipment and compliance records across all EMB regions.",
-          "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "Apache", "MySQL"],
+          "tech": [
+            "PHP",
+            "CodeIgniter",
+            "Jquery",
+            "Bootstrap",
+            "Apache",
+            "MySQL"
+          ],
           "link": "https://pcb.emb.gov.ph/",
           "public": true,
-          "images": ["emb/pcb-tracker.png"]
+          "images": [
+            "emb/pcb-tracker.webp"
+          ]
         },
         {
           "title": "Solid Waste Management System",
           "desc": "Government platform for managing and evaluating 10-year solid waste collection plans submitted by LGUs.",
-          "tech": ["PHP", "CodeIgniter", "Vue.js", "Bootstrap", "NGINX", "MariaDB"],
+          "tech": [
+            "PHP",
+            "CodeIgniter",
+            "Vue.js",
+            "Bootstrap",
+            "NGINX",
+            "MariaDB"
+          ],
           "link": "#",
           "public": false,
-          "images": ["emb/sws1.png", "emb/sws2.png", "emb/sws3.PNG", "emb/sws4.PNG"]
+          "images": [
+            "emb/sws1.webp",
+            "emb/sws2.webp",
+            "emb/sws3.webp",
+            "emb/sws4.webp"
+          ]
         },
         {
           "title": "Financial Information System",
           "desc": "Internal budget planning and allocation system for EMB covering all divisions and sections.",
-          "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "NGINX", "MariaDB"],
+          "tech": [
+            "PHP",
+            "CodeIgniter",
+            "Jquery",
+            "Bootstrap",
+            "NGINX",
+            "MariaDB"
+          ],
           "link": "#",
           "public": false,
-          "images": ["emb/fis.png"]
+          "images": [
+            "emb/fis.webp"
+          ]
         },
         {
           "title": "Physical Target Accomplishment System",
           "desc": "Internal system for tracking and reporting physical targets and accomplishments across EMB units.",
-          "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "NGINX", "MySQL"],
+          "tech": [
+            "PHP",
+            "CodeIgniter",
+            "Jquery",
+            "Bootstrap",
+            "NGINX",
+            "MySQL"
+          ],
           "link": "#",
           "public": false,
-          "images": ["emb/physical-target-acc-system.png"]
+          "images": [
+            "emb/physical-target-acc-system.webp"
+          ]
         }
       ]
     },
@@ -274,14 +350,21 @@
         {
           "title": "Automobile Wohlensee",
           "desc": "Car dealership website with inventory management, customer quotations, and a blog for a Swiss automotive company.",
-          "tech": ["PHP", "CodeIgniter", "MySQL", "Bootstrap", "Jquery", "NGINX"],
+          "tech": [
+            "PHP",
+            "CodeIgniter",
+            "MySQL",
+            "Bootstrap",
+            "Jquery",
+            "NGINX"
+          ],
           "link": "https://www.automobile-wohlensee.ch/",
           "public": true,
           "images": [
-            "automobile-wohlensee/automobile-wohlensee.png",
-            "automobile-wohlensee/automobile-wohlensee1.PNG",
-            "automobile-wohlensee/automobile-wohlensee2.PNG",
-            "automobile-wohlensee/automobile-wohlensee3.PNG"
+            "automobile-wohlensee/automobile-wohlensee.webp",
+            "automobile-wohlensee/automobile-wohlensee1.webp",
+            "automobile-wohlensee/automobile-wohlensee2.webp",
+            "automobile-wohlensee/automobile-wohlensee3.webp"
           ]
         }
       ]
@@ -303,15 +386,22 @@
         {
           "title": "Fleet & Motorpool Management System",
           "desc": "Internal system for managing government vehicle inventory, maintenance schedules, and procurement requests.",
-          "tech": ["PHP", "CodeIgniter", "Jquery", "Bootstrap", "MSSQL", "Azure"],
+          "tech": [
+            "PHP",
+            "CodeIgniter",
+            "Jquery",
+            "Bootstrap",
+            "MSSQL",
+            "Azure"
+          ],
           "link": "#",
           "public": false,
           "images": [
-            "presidential-management-staff/fmms.png",
-            "presidential-management-staff/fmms1.PNG",
-            "presidential-management-staff/fmms2.PNG",
-            "presidential-management-staff/fmms3.PNG",
-            "presidential-management-staff/fmms4.PNG"
+            "presidential-management-staff/fmms.webp",
+            "presidential-management-staff/fmms1.webp",
+            "presidential-management-staff/fmms2.webp",
+            "presidential-management-staff/fmms3.webp",
+            "presidential-management-staff/fmms4.webp"
           ]
         }
       ]
@@ -336,14 +426,20 @@
         {
           "title": "Snap Payroll",
           "desc": "Payroll and HR system covering employee management, daily time records, and payroll processing for multiple clients.",
-          "tech": ["PHP", "CodeIgniter", "Jquery", "MySQL", "NGINX"],
+          "tech": [
+            "PHP",
+            "CodeIgniter",
+            "Jquery",
+            "MySQL",
+            "NGINX"
+          ],
           "link": "https://www.hilsoftinc.com/hrpayroll/",
           "public": true,
           "images": [
-            "hilsoft/snap-payroll1.PNG",
-            "hilsoft/snap-payroll2.png",
-            "hilsoft/snap-payroll3.PNG",
-            "hilsoft/snap-payroll4.PNG"
+            "hilsoft/snap-payroll1.webp",
+            "hilsoft/snap-payroll2.webp",
+            "hilsoft/snap-payroll3.webp",
+            "hilsoft/snap-payroll4.webp"
           ]
         }
       ]
