@@ -1093,7 +1093,128 @@ footer {
   }
 }
 
-/* ---------- 10c. Print / PDF resume ---------- */
+/* ---------- 10c. App shell: panes that scroll independently ---------- */
+.pane {
+  position: relative;
+  min-width: 0;
+}
+
+.pane-scroll {
+  min-height: 0;
+  scroll-behavior: smooth;
+}
+
+/* Fades appear only on the edge that actually has content beyond it.
+   Masking the scroller (not the panel) keeps the panel's frame crisp. */
+.pane-scroll.fade-b {
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 60px), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 60px), transparent);
+}
+
+.pane-scroll.fade-t {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 44px);
+  mask-image: linear-gradient(to bottom, transparent, #000 44px);
+}
+
+.pane-scroll.fade-t.fade-b {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 44px, #000 calc(100% - 60px), transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 44px, #000 calc(100% - 60px), transparent);
+}
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(16, 20, 36, 0.86);
+  border: 1px solid var(--accent-line);
+  border-radius: 999px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: cue-bob 1.9s ease-in-out infinite;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.scroll-cue:hover {
+  background: rgba(139, 92, 246, 0.28);
+  border-color: var(--accent);
+}
+
+.scroll-cue[hidden] {
+  display: none;
+}
+
+@keyframes cue-bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 4px); }
+}
+
+/* No scrollbars: the edge fades and the cue button carry the affordance. */
+.pane-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.pane-scroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+/* The panes are focusable so they stay keyboard-scrollable without a
+   visible scrollbar; the ring only shows for keyboard users. */
+.pane-scroll:focus {
+  outline: none;
+}
+
+.pane-scroll:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+/* Shell mode only where there is genuinely room for it. Below either
+   threshold the page falls back to ordinary document scrolling. */
+@media screen and (min-width: 961px) and (min-height: 620px) {
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    overflow: hidden;
+  }
+
+  .wrap {
+    height: 100%;
+  }
+
+  .panel {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    min-height: 0;
+  }
+
+  .pane-scroll {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+/* ---------- 10d. Print / PDF resume ---------- */
 @media print {
   @page {
     size: A4;
@@ -1152,6 +1273,18 @@ footer {
   }
 
   .reveal { opacity: 1 !important; transform: none !important; }
+
+  .scroll-cue { display: none !important; }
+
+  .panel,
+  .pane,
+  .pane-scroll {
+    display: block !important;
+    max-height: none !important;
+    overflow: visible !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
 
   h1 {
     margin: 0 0 3px !important;

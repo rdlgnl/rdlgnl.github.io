@@ -401,26 +401,97 @@ function renderWorkExperienceSection(data, experience) {
 }
 
 /* ---------- scroll reveal ---------- */
+/* Checked against whichever box actually clips the element — its scroll pane
+   in shell mode, the viewport otherwise — so it works in both layouts. */
 function setupReveal() {
-  const items = document.querySelectorAll('.reveal');
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const nodes = Array.from(document.querySelectorAll('.reveal'));
+  if (!nodes.length) return;
 
-  if (reduced || !('IntersectionObserver' in window)) {
-    items.forEach(n => n.classList.add('in'));
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    nodes.forEach(n => n.classList.add('in'));
     return;
   }
 
-  const io = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('in');
-      obs.unobserve(entry.target);
-    });
-  }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+  nodes.forEach((n, i) => { n.style.transitionDelay = `${Math.min(i, 6) * 55}ms`; });
 
-  items.forEach((n, i) => {
-    n.style.transitionDelay = `${Math.min(i, 6) * 55}ms`;
-    io.observe(n);
+  const pending = new Set(nodes);
+  const panes = Array.from(document.querySelectorAll('.pane-scroll'));
+
+  const viewportOf = node => {
+    const pane = node.closest('.pane-scroll');
+    if (pane && /auto|scroll/.test(getComputedStyle(pane).overflowY)) {
+      const r = pane.getBoundingClientRect();
+      return { top: r.top, bottom: r.bottom };
+    }
+    return { top: 0, bottom: window.innerHeight };
+  };
+
+  let queued = false;
+  const check = () => {
+    queued = false;
+    pending.forEach(node => {
+      const r = node.getBoundingClientRect();
+      const box = viewportOf(node);
+      if (r.top < box.bottom - 40 && r.bottom > box.top) {
+        node.classList.add('in');
+        pending.delete(node);
+      }
+    });
+    if (!pending.size) stop();
+  };
+
+  const schedule = () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(check);
+  };
+
+  function stop() {
+    window.removeEventListener('scroll', schedule);
+    window.removeEventListener('resize', schedule);
+    panes.forEach(p => p.removeEventListener('scroll', schedule));
+  }
+
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule);
+  panes.forEach(p => p.addEventListener('scroll', schedule, { passive: true }));
+
+  check();
+}
+
+/* ---------- scroll panes ---------- */
+/* Each pane reports its own overflow: edge fades show only where there is
+   more content, and the cue button appears only when something is below. */
+function setupPanes() {
+  document.querySelectorAll('.pane-scroll').forEach(pane => {
+    const cue = pane.parentElement.querySelector('.scroll-cue');
+
+    const update = () => {
+      const overflow = pane.scrollHeight - pane.clientHeight;
+      const scrollable = overflow > 2;
+      const atTop = pane.scrollTop <= 2;
+      const atEnd = pane.scrollTop >= overflow - 2;
+
+      pane.classList.toggle('fade-t', scrollable && !atTop);
+      pane.classList.toggle('fade-b', scrollable && !atEnd);
+      if (cue) cue.hidden = !scrollable || atEnd;
+    };
+
+    pane.addEventListener('scroll', update, { passive: true });
+    // Lazy images and the projects accordion both change the content height.
+    pane.addEventListener('transitionend', update);
+    pane.addEventListener('load', update, true);
+    window.addEventListener('resize', update);
+
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(pane);
+
+    if (cue) {
+      cue.addEventListener('click', () => {
+        pane.scrollBy({ top: pane.clientHeight * 0.82, behavior: 'smooth' });
+      });
+    }
+
+    update();
   });
 }
 
@@ -433,6 +504,7 @@ function setupReveal() {
     renderAboutSection(data, experience);
     renderWorkExperienceSection(data, experience);
     setupReveal();
+    setupPanes();
   } catch (e) {
     console.error('Could not load data.json — serve this folder over HTTP.', e);
     document.getElementById('about-section').innerHTML =

@@ -27,8 +27,26 @@
     <div class="aura" aria-hidden="true"></div>
 
     <div class="wrap">
-        <aside class="about-section panel" id="about-section"></aside>
-        <main class="work-experience-section panel" id="work-experience-section"></main>
+        <aside class="panel pane">
+            <div class="pane-scroll about-section" id="about-section" tabindex="0"></div>
+            <button class="scroll-cue" type="button" hidden aria-label="Scroll down for more">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+        </aside>
+
+        <main class="panel pane">
+            <div class="pane-scroll work-experience-section" id="work-experience-section" tabindex="0"></div>
+            <button class="scroll-cue" type="button" hidden aria-label="Scroll down for more">
+                <span class="scroll-cue-text">more</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+        </main>
     </div>
 
     <script src="app.js"></script>
