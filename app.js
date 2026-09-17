@@ -341,7 +341,7 @@ function buildJobCard(job) {
 
   const company = el('div', 'job-company');
   company.append(
-    el('span', 'job-type', job.isFullTime ? 'Full-Time' : 'Part-Time'),
+    el('span', 'job-type', job.employmentType || 'Full-Time'),
     document.createTextNode(job.company)
   );
   header.append(titleRow, company);
