@@ -3,6 +3,7 @@
    ========================================================= */
 
 const PRESENT = /present|current|now|ongoing/i;
+const RESUME_FILENAME = 'Rodel-Ganancial-Resume';
 
 /* ---------- tiny DOM helper ---------- */
 function el(tag, cls, text) {
@@ -118,14 +119,23 @@ function renderAboutSection(data, experience) {
   }
   container.appendChild(meta);
 
+  // Print-only heading so ATS parsers find a standard "Summary" section
+  container.appendChild(el('h3', 'summary-heading', 'Summary'));
   container.appendChild(el('p', 'about', fill(data.about)));
 
   // Calls to action
   const actions = el('div', 'actions');
+  // Opens the print dialog; "Save as PDF" uses the print stylesheet. The title
+  // is swapped while printing because browsers use it as the PDF filename.
   const resumeBtn = el('button', 'btn btn-primary');
   resumeBtn.type = 'button';
   resumeBtn.innerHTML = `${icon.download} Download Resume`;
-  resumeBtn.addEventListener('click', () => window.print());
+  resumeBtn.addEventListener('click', () => {
+    const pageTitle = document.title;
+    document.title = RESUME_FILENAME;
+    window.addEventListener('afterprint', () => { document.title = pageTitle; }, { once: true });
+    window.print();
+  });
 
   const mailBtn = el('a', 'btn btn-ghost');
   mailBtn.href = `mailto:${data.contact.email}`;
@@ -339,10 +349,12 @@ function buildJobCard(job) {
     el('span', 'job-date', job.employmentDate)
   );
 
+  // Company comes first in the DOM so parsers don't read the type as part of
+  // the name; CSS still shows the type badge first on screen.
   const company = el('div', 'job-company');
   company.append(
-    el('span', 'job-type', job.employmentType || 'Full-Time'),
-    document.createTextNode(job.company)
+    el('span', 'job-company-name', job.company),
+    el('span', 'job-type', job.employmentType || 'Full-Time')
   );
   header.append(titleRow, company);
 
@@ -396,6 +408,31 @@ function renderWorkExperienceSection(data, experience) {
 
   const list = el('div', 'experience-list');
   jobs.forEach(job => list.appendChild(buildJobCard(job)));
+
+  container.append(head, list);
+}
+
+/* ---------- education ---------- */
+function renderEducationSection(data) {
+  const schools = data.education || [];
+  if (!schools.length) return;
+
+  const container = document.getElementById('work-experience-section');
+
+  const head = el('div', 'experience-head education-head');
+  head.appendChild(el('div', 'eyebrow', 'Academic'));
+  head.appendChild(el('h2', null, 'Education'));
+
+  const list = el('div', 'experience-list');
+  schools.forEach(s => {
+    const card = el('div', 'job-card reveal');
+    const titleRow = el('div', 'job-title-row');
+    titleRow.append(el('h3', 'job-title', s.degree), el('span', 'job-date', s.graduated));
+    const school = el('div', 'job-company');
+    school.appendChild(el('span', 'job-company-name', s.school));
+    card.append(titleRow, school);
+    list.appendChild(card);
+  });
 
   container.append(head, list);
 }
@@ -503,6 +540,7 @@ function setupPanes() {
     const experience = formatExperience(computeMonthsOfExperience(data.workExperience));
     renderAboutSection(data, experience);
     renderWorkExperienceSection(data, experience);
+    renderEducationSection(data);
     setupReveal();
     setupPanes();
   } catch (e) {

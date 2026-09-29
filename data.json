@@ -1,13 +1,13 @@
 {
   "avatar": "profile.png",
   "name": "Rodel Jr. Ganancial",
-  "role": "Senior Full-Stack PHP Developer & Vibe Coder – {{experience}} of Experience",
+  "role": "Senior Full-Stack PHP Developer | AI-Assisted Development",
   "tagline": "Building web apps with Laravel, React, and TypeScript.",
   "about": "I build reliable web applications that solve real business problems. With {{experience}} of experience across government and enterprise clients, I specialize in backend architecture, API development, and full-stack delivery. I care about clean, maintainable code and shipping things that actually work.",
   "contact": {
     "email": "rodel.ganancial.job@gmail.com",
-    "phone": "09261566259",
-    "location": "North Caloocan City Philippines",
+    "phone": "+63 926 156 6259",
+    "location": "North Caloocan City, Philippines",
     "linkedin": "linkedin.com/in/rodeljrganancial",
     "github": "github.com/rdlgnl"
   },
@@ -69,8 +69,8 @@
   ],
   "workExperience": [
     {
-      "company": "FLEXISOURCE IT",
-      "title": "SENIOR FULL-STACK PHP DEVELOPER",
+      "company": "Flexisource IT",
+      "title": "Senior Full-Stack PHP Developer",
       "employmentType": "Contract",
       "employmentDate": "February 2025 - present",
       "descriptions": [
@@ -102,8 +102,8 @@
       ]
     },
     {
-      "company": "NTT LIMITED PHILIPPINES",
-      "title": "SENIOR BACKEND DEVELOPER",
+      "company": "NTT Limited Philippines",
+      "title": "Senior Backend Developer",
       "employmentType": "Full-Time",
       "employmentDate": "May 2024 - February 2025",
       "descriptions": [
@@ -149,8 +149,8 @@
       ]
     },
     {
-      "company": "1BIT SOFTWARE DEVELOPMENT CORP",
-      "title": "PHP LARAVEL BACKEND DEVELOPER",
+      "company": "1Bit Software Development Corp",
+      "title": "PHP Laravel Backend Developer",
       "employmentType": "Full-Time",
       "employmentDate": "January 2023 - April 2024",
       "descriptions": [
@@ -207,8 +207,8 @@
       ]
     },
     {
-      "company": "CHEMONICS INTERNATIONAL INC",
-      "title": "SOFTWARE DEVELOPER (CONSULTANT)",
+      "company": "Chemonics International Inc",
+      "title": "Software Developer (Consultant)",
       "employmentType": "Part-Time",
       "employmentDate": "May 2023 - June 2023",
       "descriptions": [
@@ -238,8 +238,8 @@
       ]
     },
     {
-      "company": "EMB CENTRAL OFFICE",
-      "title": "WEB APPLICATION DEVELOPER",
+      "company": "EMB Central Office",
+      "title": "Web Application Developer",
       "employmentType": "Full-Time",
       "employmentDate": "August 2020 - January 2023",
       "descriptions": [
@@ -331,8 +331,8 @@
       ]
     },
     {
-      "company": "AUTOMOBILE WOHLENSEE AG",
-      "title": "PHP CODEIGNITER DEVELOPER (FREELANCE)",
+      "company": "Automobile Wohlensee AG",
+      "title": "PHP CodeIgniter Developer (Freelance)",
       "employmentType": "Part-Time",
       "employmentDate": "June 2022 - October 2022",
       "descriptions": [
@@ -370,8 +370,8 @@
       ]
     },
     {
-      "company": "PRESIDENTIAL MANAGEMENT STAFF",
-      "title": "SOFTWARE DEVELOPER (CONSULTANT)",
+      "company": "Presidential Management Staff",
+      "title": "Software Developer (Consultant)",
       "employmentType": "Part-Time",
       "employmentDate": "October 2021 - December 2021",
       "descriptions": [
@@ -407,8 +407,8 @@
       ]
     },
     {
-      "company": "HILSOFT INC",
-      "title": "SOFTWARE ENGINEER",
+      "company": "Hilsoft Inc",
+      "title": "Software Engineer",
       "employmentType": "Full-Time",
       "employmentDate": "May 2018 - June 2020",
       "descriptions": [
@@ -443,6 +443,13 @@
           ]
         }
       ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Information Technology",
+      "school": "Quezon City Polytechnic University",
+      "graduated": "2018"
     }
   ]
 }

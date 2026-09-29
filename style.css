@@ -120,7 +120,8 @@ body {
 
 /* Small uppercase mono label above each block */
 .section h3,
-.eyebrow {
+.eyebrow,
+.summary-heading {
   margin: 0 0 12px;
   font-family: var(--mono);
   font-size: 10.5px;
@@ -403,6 +404,7 @@ a.link:hover {
 
 /* Visibility utilities */
 .print-only { display: none; }
+.summary-heading { display: none; }
 .chip-phone { display: none; }
 
 footer {
@@ -425,6 +427,10 @@ footer {
   font-size: clamp(20px, 2.4vw, 26px);
   font-weight: 700;
   letter-spacing: -0.02em;
+}
+
+.education-head {
+  margin-top: 40px;
 }
 
 .experience-head .count {
@@ -512,6 +518,7 @@ footer {
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.01em;
+  text-transform: uppercase;
   color: var(--fg);
 }
 
@@ -545,7 +552,13 @@ footer {
   color: var(--accent);
 }
 
+.job-company-name {
+  text-transform: uppercase;
+}
+
+/* Badge sits after the name in the DOM (for parsers) but shows first */
 .job-type {
+  order: -1;
   font-family: var(--mono);
   font-size: 9.5px;
   font-weight: 600;
@@ -1221,6 +1234,12 @@ footer {
     margin: 18mm 15mm;
   }
 
+  /* The dark color-scheme meta otherwise paints the page margins black */
+  :root {
+    color-scheme: light;
+    background: #fff !important;
+  }
+
   body {
     padding: 0 !important;
     font-size: 10.5pt;
@@ -1258,8 +1277,6 @@ footer {
   .projects-panel,
   .modal-overlay,
   .project-link-btn,
-  .chip-linkedin,
-  .chip-github,
   footer {
     display: none !important;
   }
@@ -1311,7 +1328,8 @@ footer {
   .section { margin-top: 12px !important; }
 
   .section h3,
-  .eyebrow {
+  .eyebrow,
+  .summary-heading {
     margin-bottom: 7px !important;
     padding-bottom: 3px !important;
     font-size: 8.5pt !important;
@@ -1332,22 +1350,37 @@ footer {
     border-color: #e5e7eb !important;
   }
 
-  .skill-group + .skill-group { margin-top: 7px !important; }
-  .skill-group-label { font-size: 8pt !important; color: #6b7280 !important; }
+  /* One comma-separated line per group ("BACKEND: PHP, Laravel") so parsers
+     read each skill as a separate keyword */
+  .skill-group + .skill-group { margin-top: 3px !important; }
+  .skill-group-label {
+    display: inline !important;
+    font-size: 8.5pt !important;
+    color: #374151 !important;
+  }
+  .skill-group-label::after { content: ": "; }
+
+  .skills { display: inline !important; }
 
   .skill {
-    padding: 2px 7px !important;
-    font-size: 9pt !important;
+    display: inline !important;
+    padding: 0 !important;
+    font-size: 9.5pt !important;
     color: #374151 !important;
-    background: #f3f4f6 !important;
-    border-color: #d1d5db !important;
+    background: none !important;
+    border: none !important;
   }
+  .skill:not(:last-child)::after { content: ", "; }
 
   a.link { color: #111827 !important; }
 
   .experience-head { margin-bottom: 10px !important; }
   .experience-head h2 { font-size: 14pt !important; color: #111827 !important; }
-  .experience-head .count { display: none !important; }
+  .experience-head .count,
+  .experience-head .eyebrow { display: none !important; }
+
+  .summary-heading { display: block !important; margin-top: 12px !important; }
+  .education-head { margin-top: 14px !important; }
 
   .experience-list { padding-left: 0 !important; }
   .experience-list::before { display: none !important; }
@@ -1370,6 +1403,10 @@ footer {
 
   .job-title { font-size: 11pt !important; color: #111827 !important; }
 
+  /* Real capitalisation in the PDF text layer, not the screen's uppercase */
+  .job-title,
+  .job-company-name { text-transform: none !important; }
+
   .job-date {
     padding: 0 !important;
     font-size: 9pt !important;
@@ -1379,7 +1416,18 @@ footer {
   }
 
   .job-company { margin-top: 3px !important; font-size: 10pt !important; color: #6d28d9 !important; }
-  .job-type { color: #6b7280 !important; border-color: #d1d5db !important; }
+  .job-type {
+    order: 0 !important;
+    padding: 0 !important;
+    font-family: inherit !important;
+    font-size: 9.5pt !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    color: #6b7280 !important;
+    border: none !important;
+  }
+
+  .job-type::before { content: "· "; }
 
   .job-desc { margin-top: 6px !important; font-size: 9.5pt !important; color: #374151 !important; }
   .job-desc li::before { background: #9ca3af !important; }
